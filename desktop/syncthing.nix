@@ -8,7 +8,7 @@
     overrideFolders = true;
     devices = {
       # "phone" = {id = "SBPXGPN-C7Y3BBL-HWHDM35-QLGN2CD-RVT3LDJ-JNM3ADL-4LYMK3U-KABVJAM";};
-      "work" = {id = "KFLC3OO-HR5SOOC-Q7EAL65-CWX4LR4-RKT4GQF-SMUK2RZ-YRTKM3C-YLYPAA5";};
+      "work" = {id = "6ZWYE5C-P3C5EBE-BAGAVOP-22IUEC4-JA7NMG3-L6MAUPH-64C4CV7-CWXQDAD";};
     };
     folders = {
       "Keepass" = {

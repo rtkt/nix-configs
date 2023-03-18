@@ -46,6 +46,7 @@
       nodejs
       nodePackages.npm
       oplpctools
+      cataclysm-dda
     ];
     defaultPackages = [];
   };

@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   services.openssh.extraConfig = ''
     GatewayPorts clientspecified
   '';
@@ -9,7 +9,7 @@
   '';
 
   services.sshguard = {
-    blacklist_threshold = 60;
+    blacklist_threshold = lib.mkForce 60;
     detection_time = 4800;
     whitelist = [
       "45.57.90.45"

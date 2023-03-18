@@ -102,6 +102,7 @@
             nixpkgs.lib.mkIf (self ? rev) self.rev;
           nix.registry.nixpkgs.flake = nixpkgs;
         })
+        nix-overlay.nixosModules.samba-for-ps2
         sops-nix.nixosModules.sops
       ];
     };

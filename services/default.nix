@@ -8,6 +8,5 @@
     ./go-shadowsocks2
     ./n8n
     ./ntfy
-    ./samba-for-ps2
   ];
 }

@@ -45,7 +45,7 @@
       config.allowUnfree = true;
     };
   in {
-    devShell.${system} = import ./shell.nix {inherit pkgs;};
+    devShells.${system}.default = import ./shell.nix {inherit pkgs;};
     nixosConfigurations.server = nixpkgs.lib.nixosSystem {
       inherit system;
       inherit pkgs;

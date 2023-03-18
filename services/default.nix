@@ -7,6 +7,6 @@
   imports = [
     ./go-shadowsocks2
     ./n8n
-    ./ntfy
+    # ./ntfy
   ];
 }

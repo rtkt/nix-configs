@@ -72,6 +72,7 @@
             nixpkgs.lib.mkIf (self ? rev) self.rev;
           nix.registry.nixpkgs.flake = nixpkgs;
         })
+        nix-overlay.nixosModules.n8n
         nix-overlay.nixosModules.ntfy
         sops-nix.nixosModules.sops
       ];

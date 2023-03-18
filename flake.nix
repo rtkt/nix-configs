@@ -60,7 +60,7 @@
             (import ./common {
               inherit pkgs;
             })
-            (import ./services {
+            (import ./modules {
               inherit config lib pkgs;
             })
             (import ./server {
@@ -92,7 +92,7 @@
             (import ./common {
               inherit pkgs;
             })
-            (import ./services {
+            (import ./modules {
               inherit config lib pkgs;
             })
             (import ./desktop {

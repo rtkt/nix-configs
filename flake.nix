@@ -39,7 +39,7 @@
       overlays = [
         nix-alien.overlays.default
         nix-overlay.overlays.default
-        sops-nix.overlay
+        sops-nix.overlays.default
       ];
 
       config.allowUnfree = true;

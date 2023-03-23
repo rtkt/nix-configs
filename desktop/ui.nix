@@ -6,6 +6,7 @@
 }: {
   services.xserver = {
     enable = true;
+    # dpi = 96;
     displayManager.sddm.enable = true;
     desktopManager.plasma5.enable = true;
     layout = "us,ru";

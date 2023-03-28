@@ -47,6 +47,7 @@
       nodePackages.npm
       oplpctools
       cataclysm-dda
+      git-repo
     ];
     defaultPackages = [];
   };

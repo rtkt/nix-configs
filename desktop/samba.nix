@@ -15,19 +15,4 @@
       available = true;
     };
   };
-
-  # services.samba = {
-  #   enable = true;
-  #   shares = {
-  #     PS2SMB = {
-  #       path = "/mnt/ps2smb";
-  #       "smb encrypt" = "disabled";
-  #       browseable = "yes";
-  #       "read only" = "yes";
-  #       "guest ok" = "yes";
-  #       public = "yes";
-  #       available = "yes";
-  #     };
-  #   };
-  # };
 }

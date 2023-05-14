@@ -4,7 +4,4 @@
     enable = true;
     pulse.enable = true;
   };
-  # environment.etc."pipewire/client.conf" = {
-
-  # };
 }

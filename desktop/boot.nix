@@ -16,7 +16,7 @@
       "zswap.enabled=0"
     ];
     kernel.sysctl = {
-      "vm.swappiness" = 0;
+      "vm.swappiness" = 40;
       "kernel.printk" = "3 3 3 3";
     };
     loader.grub = {

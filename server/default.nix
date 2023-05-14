@@ -12,7 +12,6 @@
     ./compacting.nix
     ./go-shadowsocks2.nix
     ./hardware-configuration.nix
-    ./journal.nix
     ./n8n.nix
     ./network.nix
     ./nginx.nix

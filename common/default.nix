@@ -2,6 +2,7 @@
   imports = [
     ./git.nix
     ./grub.nix
+    ./journal.nix
     ./nix.nix
     ./packages.nix
     ./security.nix

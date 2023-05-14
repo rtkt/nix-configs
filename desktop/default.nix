@@ -23,4 +23,6 @@
     ./ui.nix
     ./users.nix
   ];
+
+  security.rtkit.enable = true;
 }

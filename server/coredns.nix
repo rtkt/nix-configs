@@ -1,0 +1,5 @@
+{
+  services.coredns = {
+    enable = true;
+  };
+}

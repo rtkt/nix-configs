@@ -10,6 +10,7 @@
   imports = [
     ./acme.nix
     ./compacting.nix
+    ./coredns.nix
     ./go-shadowsocks2.nix
     ./hardware-configuration.nix
     ./n8n.nix

@@ -13,6 +13,7 @@
     ./coredns.nix
     ./go-shadowsocks2.nix
     ./hardware-configuration.nix
+    ./iptables.nix
     ./n8n.nix
     ./network.nix
     ./nginx.nix

@@ -1,7 +1,10 @@
 {lib, ...}: {
-  services.openssh.extraConfig = ''
-    GatewayPorts clientspecified
-  '';
+  services.openssh = {
+    ports = [ 22222 ];
+    extraConfig = ''
+      GatewayPorts clientspecified
+    '';
+  };
 
   programs.ssh.extraConfig = ''
     Host localhost

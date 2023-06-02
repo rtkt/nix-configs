@@ -2,10 +2,6 @@
   environment.variables = {
     TMOUT = "600";
   };
-  networking.firewall = {
-    allowedTCPPorts = [80 443];
-    logRefusedConnections = false;
-  };
   security.pam.loginLimits = [
     {
       domain = "*";

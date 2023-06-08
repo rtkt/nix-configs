@@ -6,7 +6,6 @@
 }: {
   services.n8n-custom = {
     enable = true;
-    path = [ pkgs.nodejs-16_x pkgs.n8n ];
     settings = {
       N8N_PATH = "/";
       N8N_PORT = lib.mkForce "9998";

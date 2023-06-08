@@ -1,13 +1,12 @@
-{ lib,  ... }:
-let
-  f = ipList:
-    let
-      command = ip: port: "iptables -A INPUT -s ${ip} -p tcp --dport ${toString port} -j ACCEPT\n";
-      acceptIp = ip: map (command ip) cloudflarePorts;
-      generateCommands = targets: map acceptIp ipList;
-    in lib.concatStrings (lib.flatten  (map acceptIp ipList));
-  
-  cloudflarePorts = [ 80 443 ];
+{lib, ...}: let
+  f = ipList: let
+    command = ip: port: "iptables -A INPUT -s ${ip} -p tcp --dport ${toString port} -j ACCEPT\n";
+    acceptIp = ip: map (command ip) cloudflarePorts;
+    generateCommands = targets: map acceptIp ipList;
+  in
+    lib.concatStrings (lib.flatten (map acceptIp ipList));
+
+  cloudflarePorts = [80 443];
   cloudflareIps = [
     "103.21.244.0/22"
     "103.22.200.0/22"
@@ -24,7 +23,7 @@ let
     "197.234.240.0/22"
     "198.41.128.0/17"
   ];
-in{
+in {
   networking.firewall = {
     allowedTCPPorts = [22222];
     logRefusedConnections = false;

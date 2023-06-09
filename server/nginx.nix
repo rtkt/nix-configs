@@ -21,13 +21,13 @@ in {
             ${proxyConfig}
           '';
         };
-        locations."/dns" = {
-          proxyPass = "http://localhost:8053/dns-query";
-          extraConfig = ''
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-          '';
-        };
+#         locations."/dns" = {
+#           proxyPass = "http://localhost:8053/dns-query";
+#           extraConfig = ''
+#             proxy_set_header Host $host;
+#             proxy_set_header X-Real-IP $remote_addr;
+#           '';
+#         };
       };
       "ntfy.shitnsticks.top" = {
         useACMEHost = "shitnsticks.top";

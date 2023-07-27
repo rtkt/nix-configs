@@ -19,6 +19,7 @@
       EXECUTION_DATA_PRUNE = "true";
       EXECUTION_DATA_PRUNE_TIMEOUT = "1800";
       EXECUTION_DATA_MAX_AGE = "168";
+      EXECUTIONS_DATA_PRUNE_MAX_COUNT = "250";
       EXECUTIONS_TIMEOUT = "1200";
       N8N_LISTEN_ADDRESS = "localhost";
       WEBHOOK_URL = "https://n8n.shitnsticks.top/";

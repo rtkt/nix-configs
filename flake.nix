@@ -19,7 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-overlay = {
-      url = "github:rtkt/nix-overlay";
+      url = "github:rtkt/nix-overlay/node2nix-experimentations";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

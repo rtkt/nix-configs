@@ -28,8 +28,12 @@
         type = "critical-ui";
       }
       {
-        name = "pipewire";
+        name = "kwin_x11";
         type = "critical-ui";
+      }
+      {
+         name = "pipewire";
+         type = "critical-ui";
       }
       {
         name = "pipewire-pulse";

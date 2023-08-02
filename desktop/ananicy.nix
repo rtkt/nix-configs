@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   services.ananicy = {
     enable = true;
     package = pkgs.ananicy-cpp;
@@ -24,38 +22,38 @@
         nice = -5;
       }
     ];
-   extraRules = [
+    extraRules = [
       {
-         name = "X";
-         type = "critical-ui";
+        name = "X";
+        type = "critical-ui";
       }
       {
-         name = "pipewire";
-         type = "critical-ui";
+        name = "pipewire";
+        type = "critical-ui";
       }
       {
-         name = "pipewire-pulse";
-         type = "critical-ui";
+        name = "pipewire-pulse";
+        type = "critical-ui";
       }
       {
-         name = "wireplumber";
-         type = "critical-ui";
+        name = "wireplumber";
+        type = "critical-ui";
       }
       {
-         name = "nix-daemon";
-         type = "heavy-background";
+        name = "nix-daemon";
+        type = "heavy-background";
       }
       {
-         name = "nix";
-         type = "heavy-background";
+        name = "nix";
+        type = "heavy-background";
       }
       {
-         name = "vivaldi-bin";
-         type = "interactive";
+        name = "vivaldi-bin";
+        type = "interactive";
       }
       {
-         name = "code";
-         type = "interactive";
+        name = "code";
+        type = "interactive";
       }
       {
         name = "chromium";

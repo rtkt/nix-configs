@@ -63,7 +63,15 @@ in {
           if cfg.plugin != null
           then " -plugin " + cfg.plugin + " -plugin-opts " + "'${cfg.pluginOpts}'"
           else ""
-        } ${if cfg.udp then " -u" else ""} ${if cfg.verbose then " -verbose" else ""}";
+        } ${
+          if cfg.udp
+          then " -u"
+          else ""
+        } ${
+          if cfg.verbose
+          then " -verbose"
+          else ""
+        }";
         DynamicUser = true;
         EnvironmentFile =
           if cfg.passwordFile != null

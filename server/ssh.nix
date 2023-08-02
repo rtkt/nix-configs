@@ -1,6 +1,6 @@
 {lib, ...}: {
   services.openssh = {
-    ports = [ 22222 ];
+    ports = [22222];
     extraConfig = ''
       GatewayPorts clientspecified
     '';

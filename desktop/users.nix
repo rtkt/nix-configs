@@ -23,6 +23,6 @@
       "wheel"
     ];
   };
-  nix.settings.trusted-users = [ "connector" ];
+  nix.settings.trusted-users = ["connector"];
   users.users.root.passwordFile = config.sops.secrets.root-password.path;
 }

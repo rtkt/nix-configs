@@ -1,5 +1,6 @@
 {config, ...}: let
   passwordFile = secrets/passwords.yaml;
+  redisFile = secrets/redis.yaml;
 in {
   sops = {
     secrets = {
@@ -17,6 +18,13 @@ in {
         sopsFile = passwordFile;
         neededForUsers = true;
         key = "rtkt";
+      };
+      redis-vsdesk = {
+        sopsFile = redisFile;
+        owner = "redis-vsdesk";
+        mode = "0440";
+        group = "redis-vsdesk";
+        key = "vsdesk";
       };
     };
   };

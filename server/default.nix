@@ -18,6 +18,7 @@
     ./nginx.nix
     ./ntfy.nix
     ./packages.nix
+    ./redis.nix
     ./remote-builds.nix
     ./security.nix
     ./sops.nix

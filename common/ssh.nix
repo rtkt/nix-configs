@@ -1,6 +1,6 @@
 {
   programs.ssh.startAgent = true;
-  programs.ssh.agentTimeout = "1h";
+  programs.ssh.agentTimeout = "6h";
   security.pam.services.sshd.googleAuthenticator.enable = true;
   services.openssh = {
     enable = true;

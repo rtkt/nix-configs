@@ -21,6 +21,7 @@
     ./sops.nix
     ./sound.nix
     ./syncthing.nix
+    ./tmpfs.nix
     ./ui.nix
     ./users.nix
   ];

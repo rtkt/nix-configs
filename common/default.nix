@@ -11,7 +11,6 @@
     ./sops.nix
     ./ssh.nix
     ./ssh-knownHosts.nix
-    ./tmpfs.nix
     ./users-and-groups.nix
   ];
 

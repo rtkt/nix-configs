@@ -8,6 +8,7 @@
     hide_kernel_threads = 1;
     hide_userland_threads = 1;
     shadow_other_users = 0;
+    shadow_distribution_path_prefix=0;
     show_thread_names = 0;
     show_program_path = 1;
     highlight_base_name = 1;
@@ -23,5 +24,6 @@
     enable_mouse = 1;
     header_margin = 0;
     tree_view = 1;
+    "screen:Main" = "PID USER PRIORITY NICE M_VIRT M_RESIDENT M_SHARE STATE PERCENT_CPU PERCENT_MEM TIME Command";
   };
 }

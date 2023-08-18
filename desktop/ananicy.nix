@@ -10,7 +10,14 @@
       {
         type = "critical-ui";
         sched = "fifo";
+        nice = -20;
         rtprio = 75;
+      }
+      {
+        type = "realtime";
+        sched = "fifo";
+        nice = -10;
+        rtprio = 30;
       }
       {
         type = "heavy-background";
@@ -20,6 +27,13 @@
       {
         type = "interactive";
         nice = -5;
+      }
+      {
+        type = "background";
+        sched = "batch";
+        nice = 5;
+        ioclass = "best-effort";
+        ionice = 5;
       }
     ];
     extraRules = [
@@ -32,8 +46,8 @@
         type = "critical-ui";
       }
       {
-         name = "pipewire";
-         type = "critical-ui";
+        name = "pipewire";
+        type = "critical-ui";
       }
       {
         name = "pipewire-pulse";
@@ -62,6 +76,32 @@
       {
         name = "chromium";
         type = "interactive";
+      }
+      {
+        name = "clementine";
+        type = "realtime";
+        ioclass = "realtime";
+      }
+      {
+        name = "dolphin";
+        type = "interactive";
+        ionice = 2;
+      }
+      {
+        name = "baloorunner";
+        type = "background";
+      }
+      {
+        name = "syncthing";
+        type = "background";
+      }
+      {
+        name = "deluge-gtk";
+        type = "background";
+      }
+      {
+        name = "smbd";
+        type = "background";
       }
     ];
   };

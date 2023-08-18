@@ -10,7 +10,6 @@
   imports = [
     ./acme.nix
     ./compacting.nix
-    # ./coredns.nix
     ./go-shadowsocks2.nix
     ./hardware-configuration.nix
     ./iptables.nix
@@ -19,11 +18,13 @@
     ./nginx.nix
     ./ntfy.nix
     ./packages.nix
+    ./redis.nix
     ./remote-builds.nix
     ./security.nix
     ./sops.nix
     ./ssh.nix
     ./sysctl.nix
+    ./unbound.nix
     ./users.nix
   ];
 

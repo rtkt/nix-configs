@@ -16,6 +16,7 @@
       NODE_FUNCTION_ALLOW_BUILTIN = "*";
       NODE_FUNCTION_ALLOW_EXTERNAL = "moment,lodash";
       HOME = "/var/lib/n8n";
+      N8N_LOG_LEVEL = "warn";
       EXECUTIONS_PROCESS = "main";
       EXECUTIONS_DATA_SAVE_ON_SUCCESS = "none";
       EXECUTION_DATA_PRUNE = "true";

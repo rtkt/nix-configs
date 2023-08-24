@@ -9,7 +9,7 @@
 in {
   services.nginx = {
     enable = true;
-    recommendedProxySettings = true;
+    recommendedProxySettings = false;
     recommendedTlsSettings = true;
     virtualHosts = {
       "shitnsticks.top" = {

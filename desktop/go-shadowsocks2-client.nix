@@ -9,7 +9,7 @@
     extraGroups = ["keys"];
     passwordFile = config.sops.secrets.ss-password.path;
     plugin = "${pkgs.shadowsocks-v2ray-plugin}/bin/v2ray-plugin";
-    pluginOpts = "'tls;path=/anime;host=shitnsticks.top;loglevel=none'";
+    pluginOpts = "'tls;path=/anime;host=shitnsticks.top;loglevel=none;mux=32'";
     udp = true;
   };
 }

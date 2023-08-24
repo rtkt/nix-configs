@@ -19,7 +19,7 @@
     ./ntfy.nix
     ./packages.nix
     ./redis.nix
-    ./remote-builds.nix
+    # ./remote-builds.nix
     ./security.nix
     ./sops.nix
     ./ssh.nix
@@ -29,6 +29,6 @@
   ];
 
   programs.zsh.shellAliases = {
-    nixos-upgrade = "cd /etc/nixos && git pull && nixos-rebuild --build-host connector@localhost switch && nix store optimise";
+    nixos-upgrade = "cd /etc/nixos && git pull && nixos-rebuild -j1 switch && nix store optimise";
   };
 }

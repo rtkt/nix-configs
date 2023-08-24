@@ -74,6 +74,7 @@
         })
         nix-overlay.nixosModules.n8n
         nix-overlay.nixosModules.ntfy
+        nix-overlay.nixosModules.sshguard-custom
         sops-nix.nixosModules.sops
       ];
     };
@@ -105,6 +106,7 @@
           nix.registry.nixpkgs.flake = nixpkgs;
         })
         nix-overlay.nixosModules.samba-for-ps2
+        nix-overlay.nixosModules.sshguard-custom
         sops-nix.nixosModules.sops
       ];
     };

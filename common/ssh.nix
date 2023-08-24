@@ -8,9 +8,12 @@
     allowSFTP = true;
     extraConfig = "AllowUsers rtkt connector";
   };
-  services.sshguard = {
+  services.sshguard-custom = {
     enable = true;
     blacklist_threshold = 120;
     blocktime = 600;
+
+    ipv6_subnet = 64;
+    ipv4_subnet = 24;
   };
 }

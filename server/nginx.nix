@@ -11,11 +11,25 @@ in {
     enable = true;
     recommendedProxySettings = false;
     recommendedTlsSettings = true;
+    eventsConfig = ''
+      worker_connections 4096;
+    '';
     virtualHosts = {
       "shitnsticks.top" = {
         root = "/var/www/shitnsticks.top";
         useACMEHost = "shitnsticks.top";
         forceSSL = true;
+        kTLS = true;
+        listen = [
+          {
+            addr = "0.0.0.0";
+            port = 443;
+            ssl = true;
+            extraParameters = [
+              "backlog=4096"
+            ];
+          }
+        ];
         locations."/anime" = {
           proxyPass = "http://localhost:8008";
           extraConfig = ''

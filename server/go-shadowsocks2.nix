@@ -9,7 +9,7 @@
     extraGroups = ["keys"];
     listenAddress = "localhost:8008";
     plugin = "${pkgs.shadowsocks-v2ray-plugin}/bin/v2ray-plugin";
-    pluginOpts = "'server;loglevel=none;path=/anime;host=shitnsticks.top;mux=64'";
+    pluginOpts = "'server;loglevel=none;path=/anime;host=shitnsticks.top;mux=96;fast-open'";
     udp = true;
   };
 }

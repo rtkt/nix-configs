@@ -31,4 +31,8 @@
   programs.zsh.shellAliases = {
     nixos-upgrade = "cd /etc/nixos && git pull && nixos-rebuild -j1 switch && nix store optimise";
   };
+
+  systemd.extraConfig = ''
+    DefaultLimitNOFILE= "16384:524288";
+  '';
 }

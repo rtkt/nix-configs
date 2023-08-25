@@ -26,6 +26,12 @@ in {
         group = "redis-vsdesk";
         key = "vsdesk";
       };
+      n8n-smtp = {
+        sopsFile = secrets/n8n.yaml;
+        owner = "${config.services.n8n-custom.user}";
+        mode = "0400";
+        key = "smtp-password";
+      };
     };
   };
 }

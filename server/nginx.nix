@@ -37,13 +37,6 @@ in {
             ${proxyConfig}
           '';
         };
-        #         locations."/dns" = {
-        #           proxyPass = "http://localhost:8053/dns-query";
-        #           extraConfig = ''
-        #             proxy_set_header Host $host;
-        #             proxy_set_header X-Real-IP $remote_addr;
-        #           '';
-        #         };
       };
       "ntfy.shitnsticks.top" = {
         useACMEHost = "shitnsticks.top";
@@ -60,7 +53,7 @@ in {
         useACMEHost = "shitnsticks.top";
         forceSSL = true;
         locations."/" = {
-          proxyPass = "http://localhost:${config.services.n8n-custom.settings.N8N_PORT}";
+          proxyPass = "http://localhost:${builtins.toString config.services.n8n-custom.port}";
           extraConfig = ''
             ${proxyConfig}
           '';

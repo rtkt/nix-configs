@@ -9,11 +9,19 @@
     quota = 92;
     memorymax = "800M";
     user = "n8n";
+    smtp = {
+      enable = true;
+      host = "mail.cock.li";
+      ssl = false;
+      port = 587;
+      sender = "n8nchan@waifu.club";
+      user = "n8nchan@waifu.club";
+      passwordFile = "${config.sops.secrets.n8n-smtp.path}";
+    };
     settings = {
       N8N_PATH = "/";
-      N8N_PORT = lib.mkForce "9998";
       N8N_DEFAULT_LOCALE = "ru-RU";
-      GENERIC_TIMEZONE = "Asia/Krasnoyarsk";
+      GENERIC_TIMEZONE = "${config.time.timeZone}";
       N8N_EDITOR_BASE_URL = "https://n8n.shitnsticks.top";
       N8N_USER_FOLDER = "/var/lib/n8n";
       NODE_FUNCTION_ALLOW_BUILTIN = "*";

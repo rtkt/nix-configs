@@ -6,6 +6,9 @@
 }: {
   services.n8n-custom = {
     enable = true;
+    quota = 92;
+    memorymax = "800M";
+    user = "n8n";
     settings = {
       N8N_PATH = "/";
       N8N_PORT = lib.mkForce "9998";

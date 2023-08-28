@@ -33,6 +33,6 @@
   };
 
   systemd.extraConfig = ''
-    DefaultLimitNOFILE= "16384:524288";
+    DefaultLimitNOFILE=16384:524288
   '';
 }

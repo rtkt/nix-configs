@@ -3,6 +3,7 @@
   ...
 }:
 {
+  services.redis.vmOverCommit = true;
   services.redis.servers.vsdesk = {
     enable = true;
     save = [

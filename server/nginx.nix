@@ -1,4 +1,4 @@
-{config, ...}: let
+{config, pkgs, ...}: let
   proxyConfig = ''
     proxy_http_version 1.1;
     proxy_set_header Upgrade $http_upgrade;
@@ -9,6 +9,9 @@
 in {
   services.nginx = {
     enable = true;
+    additionalModules = [
+      pkgs.nginxModules.njs
+    ];
     recommendedProxySettings = false;
     recommendedTlsSettings = true;
     eventsConfig = ''

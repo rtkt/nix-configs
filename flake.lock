@@ -166,11 +166,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1694423192,
-        "narHash": "sha256-3mEoCh3wc6jdTnVguXCu9/IsCqXTh/nQQBoRPUV0OXg=",
+        "lastModified": 1694662369,
+        "narHash": "sha256-yPunjzzQWjSAdpO8tSMF4KsDNRdxT/UiW5ekxMTUdJs=",
         "owner": "rtkt",
         "repo": "nix-overlay",
-        "rev": "da157789e8e0961a85d813d1ca8b4381049b92ea",
+        "rev": "2360f8c25a7e29afe3e8503500a9b6e12bd33da4",
         "type": "github"
       },
       "original": {

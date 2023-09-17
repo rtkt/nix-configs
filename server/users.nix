@@ -3,12 +3,12 @@
     isNormalUser = true;
     home = "/home/rtkt";
     extraGroups = ["wheel"];
-    passwordFile = config.sops.secrets.rtkt-password.path;
+    hashedPasswordFile = config.sops.secrets.rtkt-password.path;
   };
   users.users.connector = {
     isNormalUser = true;
     group = "connector";
-    passwordFile = config.sops.secrets.connector-password.path;
+    hashedPasswordFile = config.sops.secrets.connector-password.path;
   };
-  users.users.root.passwordFile = config.sops.secrets.root-password.path;
+  users.users.root.hashedPasswordFile = config.sops.secrets.root-password.path;
 }

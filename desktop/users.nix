@@ -5,7 +5,7 @@
 }: {
   users.users.rtkt = {
     isNormalUser = true;
-    passwordFile = config.sops.secrets.rtkt-password.path;
+    hashedPasswordFile = config.sops.secrets.rtkt-password.path;
     extraGroups = [
       "wheel"
       "networkmanager"
@@ -18,11 +18,11 @@
     createHome = true;
     shell = pkgs.zsh;
     home = "/var/lib/connector";
-    passwordFile = config.sops.secrets.connector-password.path;
+    hashedPasswordFile = config.sops.secrets.connector-password.path;
     extraGroups = [
       "wheel"
     ];
   };
   nix.settings.trusted-users = ["connector"];
-  users.users.root.passwordFile = config.sops.secrets.root-password.path;
+  users.users.root.hashedPasswordFile = config.sops.secrets.root-password.path;
 }

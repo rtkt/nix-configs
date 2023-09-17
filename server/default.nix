@@ -16,6 +16,7 @@
     ./n8n.nix
     ./network.nix
     ./nginx.nix
+    ./nginx-dns.nix
     ./ntfy.nix
     ./packages.nix
     ./redis.nix

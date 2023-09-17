@@ -75,6 +75,7 @@
         nix-overlay.nixosModules.n8n
         nix-overlay.nixosModules.ntfy
         nix-overlay.nixosModules.sshguard-custom
+        nix-overlay.nixosModules.nginx-dns
         sops-nix.nixosModules.sops
       ];
     };

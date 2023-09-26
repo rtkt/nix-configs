@@ -7,7 +7,7 @@
   services.n8n-custom = {
     enable = true;
     quota = 92;
-    memorymax = "800M";
+    memorymax = "750M";
     user = "n8n";
     smtp = {
       enable = true;
@@ -37,6 +37,7 @@
       EXECUTIONS_TIMEOUT = "1200";
       N8N_LISTEN_ADDRESS = "localhost";
       WEBHOOK_URL = "https://n8n.shitnsticks.top/";
+      NODE_OPTIONS = "--max-old-space-size=2048 --use-largepages=on";
     };
   };
 }

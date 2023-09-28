@@ -15,6 +15,7 @@
     ./network.nix
     ./packages.nix
     ./partitions.nix
+    ./routedns.nix
     ./samba.nix
     ./security.nix
     ./smartd.nix

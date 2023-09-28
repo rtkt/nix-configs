@@ -20,7 +20,7 @@
     ./ntfy.nix
     ./packages.nix
     ./redis.nix
-    ./remote-builds.nix
+    # ./remote-builds.nix
     ./security.nix
     ./sops.nix
     ./ssh.nix

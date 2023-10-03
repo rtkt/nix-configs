@@ -4,6 +4,9 @@
   ...
 }: {
   # hardware.video.hidpi.enable = lib.mkDefault true;
+  boot.kernelParams = [
+    "amdgpu.runpm=0"
+  ];
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [

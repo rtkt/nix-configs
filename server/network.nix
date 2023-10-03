@@ -11,8 +11,13 @@
         prefixLength = 22;
       }
     ];
-    nameservers = ["8.8.8.8" "8.8.4.4"];
   };
-
   services.vnstat.enable = true;
+  environment.etc."resolv.conf" = {
+    enable = true;
+    mode = "0444";
+    text = ''
+      nameserver 127.0.0.1
+    '';
+  };
 }

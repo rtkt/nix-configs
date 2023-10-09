@@ -7,7 +7,8 @@
   boot = {
     extraModulePackages = [];
     initrd.availableKernelModules = ["ahci" "ohci_pci" "ehci_pci" "pata_atiixp" "uhci_hcd" "usb_storage" "usbhid" "sd_mod"];
-    initrd.kernelModules = ["amdgpu kvm-amd"];
+    initrd.kernelModules = ["amdgpu"];
+    kernelPackages = lib.mkForce pkgs.linuxKernel.packages.linux_zen;
     kernelParams = [
       "quiet"
       "udev.log_priority=3"

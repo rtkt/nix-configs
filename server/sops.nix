@@ -26,6 +26,13 @@ in {
         group = "redis-vsdesk";
         key = "vsdesk";
       };
+      redis-notion = {
+        sopsFile = redisFile;
+        owner = "redis-notion";
+        mode = "0440";
+        group = "redis-notion";
+        key = "notion";
+      };
       n8n-smtp = {
         sopsFile = secrets/n8n.yaml;
         owner = "${config.services.n8n-custom.user}";

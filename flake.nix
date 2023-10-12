@@ -79,6 +79,36 @@
         sops-nix.nixosModules.sops
       ];
     };
+    nixosConfigurations.cloud = nixpkgs.lib.nixosSystem {
+      inherit system;
+      inherit pkgs;
+      modules = [
+        ({
+          lib,
+          config,
+          pkgs,
+          ...
+        }: {
+          imports = [
+            (import ./common {
+              inherit pkgs;
+            })
+            (import ./modules {
+              inherit config lib pkgs;
+            })
+            (import ./cloud {
+              inherit config pkgs lib;
+            })
+          ];
+          system.stateVersion = "23.05";
+          system.configurationRevision =
+            nixpkgs.lib.mkIf (self ? rev) self.rev;
+          nix.registry.nixpkgs.flake = nixpkgs;
+        })
+        nix-overlay.nixosModules.sshguard-custom
+        sops-nix.nixosModules.sops
+      ];
+    };
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       inherit system;
       inherit pkgs;

@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   users = {
-    mutableUsers = false;
+    # mutableUsers = false;
     defaultUserShell = pkgs.zsh;
     groups = {
       connector = {};

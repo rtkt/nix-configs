@@ -3,6 +3,7 @@ keys:
   - &desktop_host_key age1hj3692ukgdfltp00szfncyfxzdx4769yx6dp68dhgd368vj6ushqppyyhc
   - &server age1yzrcyvngvwzlp7qpz6kcwwmj935jmvyp6n2wtq7epug2r5lm5vrqt4e8k5
   - &server_host_key age1aclvh35y6uqps83qw3u5j2c7fpqkc8snsxddmsfvz6wxl3yfy47saqs86d
+  - &server_host_key age1aclvh35y6uqps83qe3u5j2c7fpqkc8snsxddmsfvz6wxl3yfy47saqs86d
   - &cloud age1zhxewpvpg8svm8225m2g00x2vxp2y2zdl2m633yf6cmaz9pc6qxshf2ht3
   - &cloud_host_key age10t0dh599qzm2gdehpj2welvn03t6yg9a6q6dgkqzmzp6v4pqw3fs08ktk5
 creation_rules:
@@ -20,8 +21,13 @@ creation_rules:
       - age:
         - *desktop
         - *desktop_host_key
-  - path_regex: server/secrets/[^/]+\.yaml$
-    key_groups:
-      - age:
-        - *server
-        - *server_host_key
+    - path_regex: server/secrets/[^/]+\.yaml$
+      key_groups:
+        - age:
+          - *server
+          - *server_host_key
+    - path_regex: cloud/secrets/[^/]+\.yaml$
+      key_groups:
+        - age:
+          - *cloud
+          - *cloud_host_key

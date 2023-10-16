@@ -9,7 +9,7 @@
 
       commit.gpgsign = true;
       gpg.format = "ssh";
-      user.signingkey = "~/.ssh/git_signature";
+      user.signingkey = "~/.ssh/github_key";
     };
   };
 }

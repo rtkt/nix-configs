@@ -25,7 +25,7 @@
       N8N_EDITOR_BASE_URL = "https://n8n.shitnsticks.top";
       N8N_USER_FOLDER = "/var/lib/n8n";
       NODE_FUNCTION_ALLOW_BUILTIN = "*";
-      NODE_FUNCTION_ALLOW_EXTERNAL = "moment,lodash";
+      NODE_FUNCTION_ALLOW_EXTERNAL = "moment,lodash,any-date-parser";
       HOME = "/var/lib/n8n";
       N8N_LOG_LEVEL = "warn";
       EXECUTIONS_PROCESS = "main";

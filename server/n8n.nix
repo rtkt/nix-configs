@@ -26,6 +26,7 @@
       N8N_USER_FOLDER = "/var/lib/n8n";
       NODE_FUNCTION_ALLOW_BUILTIN = "*";
       NODE_FUNCTION_ALLOW_EXTERNAL = "moment,lodash,any-date-parser";
+      NODE_PATH = "${pkgs.n8n}/lib,${pkgs.any-date-parser}/lib";
       HOME = "/var/lib/n8n";
       N8N_LOG_LEVEL = "warn";
       EXECUTIONS_PROCESS = "main";

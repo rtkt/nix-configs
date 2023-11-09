@@ -15,6 +15,7 @@
     ./network.nix
     ./packages.nix
     ./partitions.nix
+    ./printing.nix
     ./routedns.nix
     ./samba.nix
     ./security.nix

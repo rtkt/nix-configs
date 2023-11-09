@@ -49,6 +49,7 @@
       # oplpctools
       cataclysm-dda
       git-repo
+      anytype
     ];
     defaultPackages = [];
   };

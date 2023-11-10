@@ -13,10 +13,10 @@
     ./network.nix
     ./packages.nix
     ./security.nix
-    # ./sops.nix
+    ./sops.nix
     ./ssh.nix
     ./sysctl.nix
-    # ./users.nix
+    ./users.nix
   ];
   users.mutableUsers = true;
 

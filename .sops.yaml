@@ -20,13 +20,13 @@ creation_rules:
       - age:
         - *desktop
         - *desktop_host_key
-    - path_regex: server/secrets/[^/]+\.yaml$
-      key_groups:
-        - age:
-          - *server
-          - *server_host_key
-    - path_regex: cloud/secrets/[^/]+\.yaml$
-      key_groups:
-        - age:
-          - *cloud
-          - *cloud_host_key
+  - path_regex: server/secrets/[^/]+\.yaml$
+    key_groups:
+      - age:
+        - *server
+        - *server_host_key
+  - path_reqex: cloud/secrets/[^/]+\.yaml$
+    key_groups:
+      - age:
+        - *cloud
+        - *cloud_host_key

@@ -18,7 +18,6 @@
     ./sysctl.nix
     ./users.nix
   ];
-  users.mutableUsers = true;
 
   programs.zsh.shellAliases = {
     nixos-upgrade = "cd /etc/nixos && git pull && nixos-rebuild -j1 switch && nix store optimise";

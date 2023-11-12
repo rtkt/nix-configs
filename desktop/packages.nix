@@ -46,7 +46,7 @@
       tor-browser-bundle-bin
       nodejs
       nodePackages.npm
-      # oplpctools
+      oplpctools
       cataclysm-dda
       git-repo
       anytype

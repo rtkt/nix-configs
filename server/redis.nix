@@ -6,12 +6,8 @@ let commonConfig = {
   enable = true;
   save = [
     [
-      60
+      600
       1
-    ]
-    [
-      3600
-      100000
     ]
   ];
   databases = 1;
@@ -28,6 +24,11 @@ let commonConfig = {
     notion = commonConfig // {
       port = 65001;
       requirePassFile = config.sops.secrets.redis-notion.path;
+    };
+    vsdeskv2 = commonConfig // {
+      port = 65002;
+      user = "redis-vsdesk";
+      requirePassFile = config.sops.secrets.redis-vsdesk.path;
     };
   };
 }

@@ -3,6 +3,7 @@
   pkgs,
   ...
 }: {
+  users.groups.pipewire = {};
   users.users.rtkt = {
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets.rtkt-password.path;
@@ -10,6 +11,7 @@
       "wheel"
       "networkmanager"
       "libvirtd"
+      "pipewire"
     ];
   };
   users.users.connector = {

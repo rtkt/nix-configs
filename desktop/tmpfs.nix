@@ -1,8 +1,8 @@
 {
   boot = {
-    devShmSize = "10%";
+    devShmSize = "20%";
     runSize = "10%";
     tmp.useTmpfs = true;
-    tmp.tmpfsSize = "10%";
+    tmp.tmpfsSize = "20%";
   };
 }

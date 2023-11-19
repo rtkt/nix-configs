@@ -40,9 +40,6 @@
       };
     };
     "pipewire/client.conf.d/10-config.conf".source = json.generate "10-config.conf" {
-      context.properties = {
-        mem.mlock-all = true;
-      };
       stream.properties = {
         node.latency = "32/48000";
         resample.quality = 10;

@@ -1,7 +1,7 @@
 {
   boot = {
-    devShmSize = "20%";
-    runSize = "10%";
+    devShmSize = "30%";
+    runSize = "7%";
     tmp.useTmpfs = true;
     tmp.tmpfsSize = "20%";
   };

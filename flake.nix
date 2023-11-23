@@ -18,6 +18,10 @@
       url = "github:kamadorueda/alejandra/3.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    android = {
+      url = "github:tadfisher/android-nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-overlay = {
       url = "github:rtkt/nix-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,6 +33,7 @@
     nix-alien,
     nix-ld,
     alejandra,
+    android,
     sops-nix,
     nix-overlay,
   }: let

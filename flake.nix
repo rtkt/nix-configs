@@ -1,7 +1,7 @@
 {
   description = "Machine configs";
   inputs = {
-    nixpkgs.url = "flake:nixpkgs/nixos-unstable";
+    nixpkgs.url = "flake:nixpkgs/nixos-unstable-small";
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
       inputs.nixpkgs.follows = "nixpkgs"; # not mandatory but recommended

@@ -50,6 +50,7 @@
       cataclysm-dda
       git-repo
       anytype
+      androidStudioPackages.beta
     ];
     defaultPackages = [];
   };

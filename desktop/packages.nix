@@ -51,6 +51,7 @@
       git-repo
       anytype
       androidStudioPackages.beta
+      pcsxr
     ];
     defaultPackages = [];
   };

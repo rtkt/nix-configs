@@ -1,6 +1,6 @@
 {
   boot.kernel.sysctl = {
-    "vm.swappiness" = 80;
+    "vm.swappiness" = 10;
 
     # "net.core.netdev_max_backlog" = 262144;
     "net.core.rmem_default" = 1048576;

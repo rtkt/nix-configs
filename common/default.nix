@@ -8,7 +8,7 @@
     ./packages.nix
     ./security.nix
     ./shell.nix
-    ./sops.nix
+    # ./sops.nix
     ./ssh.nix
     ./ssh-knownHosts.nix
     ./users-and-groups.nix

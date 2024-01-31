@@ -8,15 +8,27 @@
   ...
 }: {
   imports = [
+    # ./acme.nix
+    ./compacting.nix
+    # ./go-shadowsocks2.nix
     ./hardware-configuration.nix
     ./iptables.nix
-    ./network.nix
+    ./libvirtd.nix
+    # ./n8n.nix
+    # ./network.nix
+    # ./nginx.nix
+    # ./nginx-dns.nix
+    # ./ntfy.nix
     ./packages.nix
+    # ./redis.nix
+    # ./remote-builds.nix
     ./security.nix
-    ./sops.nix
+    # ./sops.nix
     ./ssh.nix
     ./sysctl.nix
-    ./users.nix
+    ./tmpfs.nix
+    # ./unbound.nix
+    # ./users.nix
   ];
 
   programs.zsh.shellAliases = {
@@ -26,4 +38,6 @@
   systemd.extraConfig = ''
     DefaultLimitNOFILE=16384:524288
   '';
+
+  networking.hostName = "cloud";
 }

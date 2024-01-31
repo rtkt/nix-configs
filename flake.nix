@@ -72,10 +72,6 @@
             nixpkgs.lib.mkIf (self ? rev) self.rev;
           nix.registry.nixpkgs.flake = nixpkgs;
         })
-        nix-overlay.nixosModules.n8n
-        nix-overlay.nixosModules.ntfy
-        nix-overlay.nixosModules.sshguard-custom
-        nix-overlay.nixosModules.nginx-dns
         sops-nix.nixosModules.sops
       ];
     };
@@ -100,12 +96,14 @@
               inherit config pkgs lib;
             })
           ];
-          system.stateVersion = "23.05";
+          system.stateVersion = "23.11";
           system.configurationRevision =
             nixpkgs.lib.mkIf (self ? rev) self.rev;
           nix.registry.nixpkgs.flake = nixpkgs;
         })
         nix-overlay.nixosModules.sshguard-custom
+        nix-overlay.nixosModules.n8n
+        nix-overlay.nixosModules.ntfy
         sops-nix.nixosModules.sops
       ];
     };

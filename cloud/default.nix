@@ -20,15 +20,15 @@
     # ./nginx-dns.nix
     # ./ntfy.nix
     ./packages.nix
-    # ./redis.nix
+    ./redis.nix
     # ./remote-builds.nix
     ./security.nix
-    # ./sops.nix
+    ./sops.nix
     ./ssh.nix
     ./sysctl.nix
     ./tmpfs.nix
     # ./unbound.nix
-    # ./users.nix
+    ./users.nix
   ];
 
   programs.zsh.shellAliases = {

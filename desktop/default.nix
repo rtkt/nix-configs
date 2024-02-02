@@ -13,7 +13,6 @@
     ./documentation.nix
     ./go-shadowsocks2-client.nix
     ./gpu.nix
-    ./libvirtd.nix
     ./network.nix
     ./packages.nix
     ./partitions.nix

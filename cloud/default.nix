@@ -14,9 +14,9 @@
     ./hardware-configuration.nix
     ./iptables.nix
     ./libvirtd.nix
-    # ./n8n.nix
-    # ./network.nix
-    # ./nginx.nix
+    ./n8n.nix
+    ./network.nix
+    ./nginx.nix
     # ./nginx-dns.nix
     # ./ntfy.nix
     ./packages.nix
@@ -31,13 +31,7 @@
     ./users.nix
   ];
 
-  programs.zsh.shellAliases = {
-    nixos-upgrade = "cd /etc/nixos && git pull && nixos-rebuild -j1 switch && nix store optimise";
-  };
-
   systemd.extraConfig = ''
     DefaultLimitNOFILE=16384:524288
   '';
-
-  networking.hostName = "cloud";
 }

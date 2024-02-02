@@ -3,21 +3,13 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking = {
-    defaultGateway = "45.90.56.1";
-    hostName = "server";
-    interfaces.ens3.ipv4.addresses = [
-      {
-        address = "45.90.57.45";
-        prefixLength = 22;
-      }
-    ];
+    hostName = "cloud";
+    useDHCP = false;
+    interfaces.enp10s0.useDHCP = true;
+
+    hosts = {
+      "127.0.0.2" = [ "rtkt.cloud" "files.rtkt.cloud" "ntfy.rtkt.cloud" "n8n.rtkt.cloud" ];
+    };
   };
   services.vnstat.enable = true;
-  environment.etc."resolv.conf" = {
-    enable = true;
-    mode = "0444";
-    text = ''
-      nameserver 127.0.0.1
-    '';
-  };
 }

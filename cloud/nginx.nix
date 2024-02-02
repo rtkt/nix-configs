@@ -9,24 +9,24 @@
 in {
   services.nginx = {
     enable = true;
-    additionalModules = [
-      pkgs.nginxModules.njs
-    ];
+    # additionalModules = [
+    #   pkgs.nginxModules.njs
+    # ];
     recommendedProxySettings = false;
-    recommendedTlsSettings = true;
+    # recommendedTlsSettings = true;
     eventsConfig = ''
       worker_connections 4096;
     '';
     virtualHosts = {
-      "shitnsticks.top" = {
-        root = "/var/www/shitnsticks.top";
-        useACMEHost = "shitnsticks.top";
-        forceSSL = true;
-        kTLS = true;
+      "rtkt.cloud" = {
+        root = "/var/www/rtkt.cloud";
+        # useACMEHost = "shitnsticks.top";
+        # forceSSL = true;
+        # kTLS = true;
         listen = [
           {
             addr = "0.0.0.0";
-            port = 443;
+            port = 80;
             ssl = true;
             extraParameters = [
               "backlog=4096"
@@ -41,9 +41,9 @@ in {
           '';
         };
       };
-      "ntfy.shitnsticks.top" = {
-        useACMEHost = "shitnsticks.top";
-        forceSSL = true;
+      "ntfy.rtkt.cloud" = {
+        # useACMEHost = "shitnsticks.top";
+        # forceSSL = true;
         locations."/" = {
           proxyPass = "http://${config.services.ntfy.listenHTTP}";
           extraConfig = ''
@@ -52,9 +52,9 @@ in {
           '';
         };
       };
-      "n8n.shitnsticks.top" = {
-        useACMEHost = "shitnsticks.top";
-        forceSSL = true;
+      "n8n.rtkt.cloud" = {
+        # useACMEHost = "shitnsticks.top";
+        # forceSSL = true;
         locations."/" = {
           proxyPass = "http://localhost:${builtins.toString config.services.n8n-custom.port}";
           extraConfig = ''

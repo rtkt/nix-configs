@@ -5,6 +5,8 @@
   ...
 }: {
   imports = [
+    ./hosts.nix
+
     ./ananicy.nix
     ./autossh.nix
     ./boot.nix

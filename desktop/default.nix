@@ -8,9 +8,9 @@
     ../common/am3.nix
     ../common/hosts.nix
     ../common/documentation.nix
+    ../common/multimedia.nix
     ../common/nozswap.nix
 
-    ./ananicy.nix
     ./autossh.nix
     ./boot.nix
     # ./go-shadowsocks2-client.nix
@@ -22,7 +22,6 @@
     ./routedns.nix
     ./samba.nix
     ./security.nix
-    ./smartd.nix
     ./sops.nix
     ./sound.nix
     ./syncthing.nix
@@ -30,6 +29,4 @@
     ./ui.nix
     ./users.nix
   ];
-
-  security.rtkit.enable = true;
 }

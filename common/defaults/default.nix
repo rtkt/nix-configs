@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./git.nix
     ./grub.nix
@@ -8,6 +12,7 @@
     ./packages.nix
     ./security.nix
     ./shell.nix
+    ./smartd.nix
     ./sops.nix
     ./ssh.nix
     ./ssh-knownHosts.nix
@@ -16,6 +21,6 @@
 
   time.timeZone = "Asia/Krasnoyarsk";
   networking.useDHCP = false;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
   boot.consoleLogLevel = 3;
 }

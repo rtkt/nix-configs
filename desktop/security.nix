@@ -9,5 +9,4 @@
   ];
   security.pam.sshAgentAuth.enable = true;
   security.pam.services.sshd.sshAgentAuth = true;
-  security.rtkit.enable = true;
 }

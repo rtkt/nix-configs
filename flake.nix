@@ -58,7 +58,7 @@
         }: {
           imports = [
             (import ./common/defaults {
-              inherit pkgs;
+              inherit config lib pkgs;
             })
             (import ./modules {
               inherit config lib pkgs;
@@ -87,7 +87,7 @@
         }: {
           imports = [
             (import ./common/defaults {
-              inherit pkgs;
+              inherit config lib pkgs;
             })
             (import ./modules {
               inherit config lib pkgs;
@@ -120,7 +120,7 @@
         }: {
           imports = [
             (import ./common/defaults {
-              inherit pkgs;
+              inherit config lib pkgs;
             })
             (import ./modules {
               inherit config lib pkgs;

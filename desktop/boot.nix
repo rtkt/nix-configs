@@ -24,6 +24,5 @@
       device = "/dev/disk/by-id/ata-INTEL_SSDSC2KW256G8_PHLA913305PY256CGN";
     };
   };
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.firmware = [pkgs.linux-firmware];
 }

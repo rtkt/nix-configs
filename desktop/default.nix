@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ../common/am3.nix
     ../common/hosts.nix
     ../common/documentation.nix
 

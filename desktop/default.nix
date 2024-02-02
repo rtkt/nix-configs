@@ -5,13 +5,13 @@
   ...
 }: {
   imports = [
-    ./hosts.nix
+    ../common/hosts.nix
+    ../common/documentation.nix
 
     ./ananicy.nix
     ./autossh.nix
     ./boot.nix
-    ./documentation.nix
-    ./go-shadowsocks2-client.nix
+    # ./go-shadowsocks2-client.nix
     ./gpu.nix
     ./network.nix
     ./packages.nix

@@ -8,8 +8,9 @@
   ...
 }: {
   imports = [
+    ../common/documentation.nix
+
     # ./acme.nix
-    ./compacting.nix
     # ./go-shadowsocks2.nix
     ./hardware-configuration.nix
     ./iptables.nix

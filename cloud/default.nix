@@ -11,6 +11,7 @@
     ../common/am3.nix
     ../common/hosts.nix
     ../common/documentation.nix
+    ../common/nozswap.nix
 
     # ./acme.nix
     # ./go-shadowsocks2.nix

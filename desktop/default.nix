@@ -8,6 +8,7 @@
     ../common/am3.nix
     ../common/hosts.nix
     ../common/documentation.nix
+    ../common/nozswap.nix
 
     ./ananicy.nix
     ./autossh.nix
@@ -31,5 +32,4 @@
   ];
 
   security.rtkit.enable = true;
-  services.irqbalance.enable = true;
 }

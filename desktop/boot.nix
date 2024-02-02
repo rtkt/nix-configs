@@ -14,7 +14,6 @@
       "udev.log_priority=3"
       "rd.systemd.show_status=false"
       "vt.global_cursor_default=0"
-      "zswap.enabled=0"
     ];
     kernel.sysctl = {
       "vm.swappiness" = 20;

@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   users.users.rtkt = {
     isNormalUser = true;
     home = "/home/rtkt";

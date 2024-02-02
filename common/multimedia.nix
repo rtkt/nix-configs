@@ -6,6 +6,6 @@
   imports = [
     ./ananicy.nix
   ];
-  boot.kernelPackages = lib.mkForce pkgs.linuxKernel.packages.linux_zen;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   security.rtkit.enable = true;
 }

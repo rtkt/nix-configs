@@ -1,7 +1,17 @@
-{config, pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   programs.zsh.ohMyZsh = {
     enable = true;
-    plugins = ["systemd"];
+    plugins =
+      [
+        "systemd"
+        "common-aliases"
+      ]
+      ++ lib.optional (config.services.xserver.enable) "bgnotify";
     theme = "robbyrussell";
   };
   programs.zsh.enable = true;

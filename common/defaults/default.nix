@@ -8,6 +8,7 @@
     ./grub.nix
     ./htop.nix
     ./journal.nix
+    ./kernel.nix
     ./nix.nix
     ./packages.nix
     ./security.nix
@@ -21,6 +22,5 @@
 
   time.timeZone = "Asia/Krasnoyarsk";
   networking.useDHCP = false;
-  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
   boot.consoleLogLevel = 3;
 }

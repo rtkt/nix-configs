@@ -20,12 +20,6 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "ru_RU.UTF-8";
 
-  programs.zsh.ohMyZsh.plugins = [
-    "systemd"
-    "bgnotify"
-    "common-aliases"
-  ];
-
   services.xserver.displayManager.sddm = {
     autoNumlock = true;
   };

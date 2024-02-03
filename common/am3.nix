@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   imports = [
@@ -10,6 +11,9 @@
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   boot.kernelModules = ["k10temp" "it87"];
+  environment.systemPackages = [
+    pkgs.lm_sensors
+  ];
   environment.etc."sysconfig/lm_sensors" = {
     mode = "0444";
     text = ''

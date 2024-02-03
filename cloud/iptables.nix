@@ -25,7 +25,7 @@
   ];
 in {
   networking.firewall = {
-    allowedTCPPorts = [80 443 22222];
+    allowedTCPPorts = [80 443 22];
     logRefusedConnections = false;
     # extraCommands = f cloudflareIps;
   };

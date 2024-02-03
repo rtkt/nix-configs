@@ -22,7 +22,7 @@
     ./network.nix
     ./nginx.nix
     # ./nginx-dns.nix
-    # ./ntfy.nix
+    ./ntfy.nix
     ./packages.nix
     ./redis.nix
     # ./remote-builds.nix

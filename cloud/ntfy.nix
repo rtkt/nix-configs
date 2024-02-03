@@ -5,7 +5,7 @@
     debug = false;
     attachments = {
       enable = true;
-      baseURL = "https://ntfy.shitnsticks.top";
+      baseURL = "http://ntfy.rtkt.cloud";
     };
   };
 }

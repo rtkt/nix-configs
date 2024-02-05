@@ -18,8 +18,10 @@
     ./hardware-configuration.nix
     ./iptables.nix
     ./libvirtd.nix
+    ./mysql.nix
     ./n8n.nix
     ./network.nix
+    ./nextcloud.nix
     ./nginx.nix
     # ./nginx-dns.nix
     ./ntfy.nix

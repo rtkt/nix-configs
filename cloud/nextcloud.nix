@@ -14,6 +14,10 @@
     };
     settings = {
       default_phone_region = "RU";
+      default_language = "ru";
+      default_locale = "ru";
+      default_timezone = config.time.timeZone;
+      trashbin_retention_obligation = "auto, 60";
     };
   };
 

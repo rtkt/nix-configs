@@ -3,7 +3,20 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  commonConfig = {
+    enable = true;
+    save = [
+      [
+        600
+        1
+      ]
+    ];
+    databases = 1;
+    bind = "127.0.0.1";
+    openFirewall = false;
+  };
+in {
   services.n8n-custom = {
     enable = true;
     memorymax = "8G";
@@ -38,5 +51,20 @@
       WEBHOOK_URL = "http://n8n.rtkt.cloud/";
       NODE_OPTIONS = "--max-old-space-size=2048 --use-largepages=on";
     };
+  };
+
+  services.redis.servers = {
+    vsdesk =
+      commonConfig
+      // {
+        port = 65000;
+        requirePassFile = config.sops.secrets.redis-vsdesk.path;
+      };
+    notion =
+      commonConfig
+      // {
+        port = 65001;
+        requirePassFile = config.sops.secrets.redis-notion.path;
+      };
   };
 }

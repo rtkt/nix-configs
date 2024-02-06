@@ -7,13 +7,13 @@
       domain = "*";
       item = "nproc";
       type = "hard";
-      value = 1000;
+      value = 5000;
     }
     {
       domain = "*";
       item = "nproc";
       type = "soft";
-      value = 200;
+      value = 1000;
     }
   ];
   sound.enable = false;

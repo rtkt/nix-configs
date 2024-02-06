@@ -13,6 +13,7 @@
       adminpassFile = config.sops.secrets.nextcloud-admin-password.path;
     };
     settings = {
+      default_phone_region = "RU";
     };
   };
 

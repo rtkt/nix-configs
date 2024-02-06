@@ -5,7 +5,6 @@
     hostName = "files.rtkt.cloud";
     package = pkgs.nextcloud28;
     home = "/var/lib/nextcloud";
-    datadir = "/mnt/nextcloud";
     database.createLocally = true;
     config = {
       dbtype = "mysql";

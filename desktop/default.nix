@@ -19,8 +19,8 @@
     ./packages.nix
     ./partitions.nix
     ./printing.nix
-    ./routedns.nix
-    ./samba.nix
+    # ./routedns.nix
+    # ./samba.nix
     ./security.nix
     ./sops.nix
     ./sound.nix

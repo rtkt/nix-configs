@@ -1,7 +1,7 @@
 {config, ...}: let
   passwordFile = secrets/passwords.yaml;
   redisFile = secrets/redis.yaml;
-  mariaDBFile = secrets/mariadb.yaml;
+  nextcloudFile = secrets/nextcloud.yaml;
   n8nFile = secrets/n8n.yaml;
 in {
   sops = {
@@ -41,8 +41,8 @@ in {
         mode = "0400";
         key = "smtp-password";
       };
-      mariadb-admin-password = {
-        sopsFile = mariaDBFile;
+      nextcloud-admin-password = {
+        sopsFile = nextcloudFile;
         owner = "nextcloud";
         mode = "0400";
         key = "admin";

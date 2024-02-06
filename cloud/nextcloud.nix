@@ -8,7 +8,7 @@
     database.createLocally = true;
     config = {
       dbtype = "mysql";
-      adminpassFile = config.sops.secrets.mariadb-admin-password.path;
+      adminpassFile = config.sops.secrets.nextcloud-admin-password.path;
     };
   };
 

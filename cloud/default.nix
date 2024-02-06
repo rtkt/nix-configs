@@ -15,7 +15,7 @@
 
     # ./acme.nix
     # ./go-shadowsocks2.nix
-    ./hardware-configuration.nix
+    ./boot.nix
     ./iptables.nix
     ./libvirtd.nix
     ./mysql.nix
@@ -26,6 +26,7 @@
     # ./nginx-dns.nix
     ./ntfy.nix
     ./packages.nix
+    ./partitions.nix
     ./redis.nix
     # ./remote-builds.nix
     ./security.nix

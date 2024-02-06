@@ -1,10 +1,7 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   services.printing = {
     enable = true;
-    drivers = [ pkgs.brlaser ];
+    drivers = [pkgs.brlaser];
     stateless = true;
   };
   hardware.printers.ensurePrinters = [

@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       server = {
-        interface = [ "127.0.0.1" ];
+        interface = ["127.0.0.1"];
         # verbosity = 4;
         "do-ip6" = false;
         # log-queries = true;

@@ -1,5 +1,9 @@
-{config, lib, pkgs,...}:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   services.nextcloud = {
     enable = true;
     hostName = "files.rtkt.cloud";

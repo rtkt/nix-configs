@@ -1,4 +1,4 @@
-{config, pkgs,...}:
+{config, lib, pkgs,...}:
 {
   services.nextcloud = {
     enable = true;
@@ -6,13 +6,18 @@
     package = pkgs.nextcloud28;
     home = "/var/lib/nextcloud";
     database.createLocally = true;
+    caching.redis = true;
+    configureRedis = true;
     config = {
       dbtype = "mysql";
       adminpassFile = config.sops.secrets.nextcloud-admin-password.path;
     };
+    settings = {
+    };
   };
 
   services.mysql = {
+    enable = lib.mkDefault true;
     ensureDatabases = [
       "${config.services.nextcloud.config.dbname}"
     ];

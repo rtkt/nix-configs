@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   environment.variables = {
     TMOUT = "600";
   };
@@ -16,4 +16,7 @@
       value = 200;
     }
   ];
+  sound.enable = false;
+  environment.noXlibs = true;
+  boot.kernelPackages = pkgs.linuxPackages_hardened;
 }

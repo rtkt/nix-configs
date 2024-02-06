@@ -17,7 +17,7 @@
     # ./go-shadowsocks2.nix
     ./boot.nix
     ./iptables.nix
-    ./libvirtd.nix
+    # ./libvirtd.nix
     ./mysql.nix
     ./n8n.nix
     ./network.nix

@@ -3,6 +3,7 @@
   redisFile = secrets/redis.yaml;
   nextcloudFile = secrets/nextcloud.yaml;
   n8nFile = secrets/n8n.yaml;
+  nextcloudMysqlFile = secrets/nextcloud-mysql.yaml;
   mysqlFile = secrets/mysql.yaml;
 in {
   sops = {
@@ -49,7 +50,7 @@ in {
         key = "admin";
       };
       nextcloud-mysql-user = {
-        sopsFile = nextcloudFile;
+        sopsFile = nextcloudMysqlFile;
         owner = "nextcloud";
         group = "mysql";
         mode = "0440";

@@ -12,7 +12,7 @@
     database.createLocally = true;
     caching.redis = true;
     configureRedis = true;
-    notify_push.enable = true;
+    # notify_push.enable = true;
     config = {
       dbtype = "mysql";
       adminpassFile = config.sops.secrets.nextcloud-admin-password.path;

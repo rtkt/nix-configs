@@ -5,7 +5,7 @@
   };
   services.mysqlBackup = {
     enable = true;
-    location = "/backups/mysql";
+    location = "/media/backups/mysql";
     calendar = "Sat *-*-* 03:00:00";
     databases = [ ]
       ++ lib.optional (config.services.nextcloud.config.dbtype == "mysql") config.services.nextcloud.config.dbname;

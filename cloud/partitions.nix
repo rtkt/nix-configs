@@ -9,17 +9,17 @@ in {
       device = root;
       fsType = "btrfs";
     };
-    "/var/lib/nextcloud/data/root/files" = {
+    "/var/lib/nextcloud/data" = {
       device = raid;
-      fsType = "btrfs";
-      options = fsRestrictions ++ ["subvolid=257"];
-    };
-    "/var/lib/nextcloud/data/root/files/Скачиваемое" = {
-      device = hdd;
       fsType = "btrfs";
       options = fsRestrictions ++ ["subvolid=258"];
     };
-    "/backups" = {
+    "/media/hdd" = {
+      device = hdd;
+      fsType = "btrfs";
+      options = fsRestrictions;
+    };
+    "/media/backups" = {
       device = raid;
       fsType = "btrfs";
       options = fsRestrictions ++ ["subvolid=256"];

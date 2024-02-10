@@ -11,6 +11,11 @@ in {
       fsType = "btrfs";
       options = fsRestrictions ++ ["subvolid=258"];
     };
+    "/backups" = {
+      device = "/dev/md/cloud:importantdata";
+      fsType = "btrfs";
+      options = fsRestrictions ++ ["subvolid=256"];
+    };
   };
   swapDevices = [];
 }

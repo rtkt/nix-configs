@@ -8,6 +8,10 @@ in {
     "/" = {
       device = root;
       fsType = "btrfs";
+      options = [
+        "defaults"
+        "noatime"
+      ];
     };
     "/var/lib/nextcloud/data" = {
       device = raid;

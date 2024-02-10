@@ -26,6 +26,7 @@
       logtimezone = config.time.timeZone;
       preview_imaginary_url = "http://${config.services.imaginary.address}:${builtins.toString config.services.imaginary.port}/";
       preview_ffmpeg_path = "${pkgs.ffmpeg}/bin/ffmpeg";
+      filesystem_check_changes = 1;
     };
   };
 

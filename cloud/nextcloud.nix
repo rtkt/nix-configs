@@ -24,7 +24,7 @@
       trashbin_retention_obligation = "auto, 60";
       updatechecker = false;
       logtimezone = config.time.timeZone;
-      
+      preview_imaginary_url = "http://${config.services.imaginary.address}:${builtins.toString config.services.imaginary.port}/";
     };
   };
 

@@ -16,6 +16,7 @@
     # ./acme.nix
     # ./go-shadowsocks2.nix
     ./boot.nix
+    ./imaginary.nix
     ./mysql.nix
     ./n8n.nix
     ./network.nix

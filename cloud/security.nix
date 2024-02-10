@@ -17,6 +17,6 @@
     }
   ];
   sound.enable = false;
-  environment.noXlibs = true;
+  # environment.noXlibs = true;
   boot.kernelPackages = pkgs.linuxPackages_hardened;
 }

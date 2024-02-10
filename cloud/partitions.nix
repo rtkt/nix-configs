@@ -1,18 +1,26 @@
 let
   fsRestrictions = ["nodev" "nosuid" "noexec"];
+  root = "/dev/disk/by-uuid/80211811-0f30-403e-b992-4e65b4c27d53";
+  raid = "/dev/md/cloud:importantdata";
+  hdd = "/dev/disk/by-uuid/9d1be106-3e62-49e4-9bd8-7e888d995d6f";
 in {
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/80211811-0f30-403e-b992-4e65b4c27d53";
+      device = root;
       fsType = "btrfs";
     };
     "/var/lib/nextcloud/data/root/files" = {
-      device = "/dev/disk/by-uuid/9d1be106-3e62-49e4-9bd8-7e888d995d6f";
+      device = raid;
+      fsType = "btrfs";
+      options = fsRestrictions ++ ["subvolid=257"];
+    };
+    "/var/lib/nextcloud/data/root/files/Скачиваемое" = {
+      device = hdd;
       fsType = "btrfs";
       options = fsRestrictions ++ ["subvolid=258"];
     };
     "/backups" = {
-      device = "/dev/md/cloud:importantdata";
+      device = raid;
       fsType = "btrfs";
       options = fsRestrictions ++ ["subvolid=256"];
     };

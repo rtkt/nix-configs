@@ -2,6 +2,12 @@
   services.mysql = {
     enable = true;
     package = pkgs.mariadb_106;
+    settings = {
+      mysqld = {
+        transaction_isolation = "READ-COMMITTED";
+        binlog_format = "ROW";
+      };
+    };
   };
   services.mysqlBackup = {
     enable = true;

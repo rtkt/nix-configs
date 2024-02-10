@@ -10,5 +10,8 @@
     databases = [ ]
       ++ lib.optional (config.services.nextcloud.config.dbtype == "mysql") config.services.nextcloud.config.dbname;
   };
-  systemd.services.mysql.serviceConfig = { LimitNOFILE = "unlimited"; };
+  systemd.services.mysql.serviceConfig = {
+    LimitMEMLOCK = "8M";
+    LimitNOFILE = "unlimited";
+  };
 }

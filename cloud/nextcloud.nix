@@ -22,6 +22,9 @@
       default_locale = "ru";
       default_timezone = config.time.timeZone;
       trashbin_retention_obligation = "auto, 60";
+      updatechecker = false;
+      logtimezone = config.time.timeZone;
+      
     };
   };
 

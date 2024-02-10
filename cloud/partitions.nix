@@ -26,4 +26,8 @@ in {
     };
   };
   swapDevices = [];
+  services.fstrim = {
+    enable = true;
+    interval = "05:00";
+  };
 }

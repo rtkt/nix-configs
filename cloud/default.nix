@@ -37,7 +37,5 @@
     ./users.nix
   ];
 
-  systemd.extraConfig = ''
-    DefaultLimitNOFILE=16384:524288
-  '';
+  services.logrotate.checkConfig = false;
 }

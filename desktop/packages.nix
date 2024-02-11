@@ -9,14 +9,12 @@
       zoom-us
       remmina
       keepassxc
-      deluge
       gimp
       mpv
       ark
       cryptsetup
       radeontop
       redshift-plasma-applet
-      lm_sensors
       corectrl
       wine-staging
       clementine

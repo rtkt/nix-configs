@@ -29,6 +29,15 @@
       preview_ffmpeg_path = "${pkgs.ffmpeg}/bin/ffmpeg";
       filesystem_check_changes = 1;
       cache_path = "${config.services.nextcloud.home}/cache";
+      enabledPreviewProviders = [
+        "OC\\Preview\\MP3"
+        "OC\\Preview\\TXT"
+        "OC\\Preview\\MarkDown"
+        "OC\\Preview\\Krita"
+        "OC\\Preview\\Imaginary"
+        "OC\\Preview\\OpenDocument"
+        "OC\\Preview\\Imaginary"
+      ];
     };
     phpOptions = {
       "opcache.enable" = "1";

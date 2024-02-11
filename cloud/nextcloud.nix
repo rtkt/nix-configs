@@ -30,6 +30,14 @@
       filesystem_check_changes = 1;
       cache_path = "${config.services.nextcloud.home}/cache";
     };
+    poolSettings = {
+      pm = "dynamic";
+      "pm.max_children" = "192";
+      "pm.start_servers" = "4";
+      "pm.min_spare_servers" = "4";
+      "pm.max_spare_servers" = "32";
+      "pm.max_requests" = "500";
+    };
   };
 
   services.mysql = {

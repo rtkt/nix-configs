@@ -104,6 +104,7 @@
         nix-overlay.nixosModules.sshguard-custom
         nix-overlay.nixosModules.n8n
         nix-overlay.nixosModules.ntfy
+        nix-overlay.nixosModules.samba-for-ps2
         sops-nix.nixosModules.sops
       ];
     };

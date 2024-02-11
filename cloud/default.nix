@@ -27,6 +27,7 @@
     ./packages.nix
     ./partitions.nix
     # ./remote-builds.nix
+    ./samba.nix
     ./security.nix
     ./sops.nix
     ./ssh.nix

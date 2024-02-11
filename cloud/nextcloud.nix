@@ -30,6 +30,15 @@
       filesystem_check_changes = 1;
       cache_path = "${config.services.nextcloud.home}/cache";
     };
+    phpOptions = {
+      "opcache.enable" = "1";
+      "opcache.memory_consumption" = "256";
+      "opcache.jit" = "1255";
+      "opcache.jit_buffer_size" = "128M";
+      "opcache.interned_strings_buffer" = "64";
+      "opcache.save_comments" = "1";
+      "opcache.revalidate_freq" = "600";
+    };
     poolSettings = {
       pm = "dynamic";
       "pm.max_children" = "192";

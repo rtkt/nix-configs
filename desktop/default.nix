@@ -13,6 +13,7 @@
 
     # ./autossh.nix
     ./boot.nix
+    ./davfs2.nix
     # ./go-shadowsocks2-client.nix
     ./gpu.nix
     ./network.nix

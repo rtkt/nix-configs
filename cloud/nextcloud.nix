@@ -27,6 +27,7 @@
       logtimezone = config.time.timeZone;
       preview_imaginary_url = "http://${config.services.imaginary.address}:${builtins.toString config.services.imaginary.port}/";
       preview_ffmpeg_path = "${pkgs.ffmpeg}/bin/ffmpeg";
+      preview_libreoffice_path = "${pkgs.libreoffice-fresh}/bin/libreoffice";
       filesystem_check_changes = 1;
       cache_path = "${config.services.nextcloud.home}/cache";
       enabledPreviewProviders = [

@@ -6,6 +6,7 @@
       mysqld = {
         transaction_isolation = "READ-COMMITTED";
         binlog_format = "ROW";
+        skip_networking = true;
       };
     };
   };

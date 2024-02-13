@@ -4,6 +4,9 @@
     enable = true;
     enableTCPIP = true;
     package = pkgs.postgresql_16;
+    settings = {
+      autovacuum = true;
+    };
     ensureDatabases = [
       "n8n"
     ];

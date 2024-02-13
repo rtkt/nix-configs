@@ -43,6 +43,24 @@ in {
         mode = "0400";
         key = "smtp-password";
       };
+      n8n-encryption = {
+        sopsFile = n8nFile;
+        owner = "${config.services.n8n-custom.user}";
+        mode = "0400";
+        key = "encryption";
+      };
+      n8n-db = {
+        sopsFile = n8nFile;
+        owner = "${config.services.n8n-custom.user}";
+        mode = "0400";
+        key = "db";
+      };
+      n8n-queue = {
+        sopsFile = redisFile;
+        owner = "${config.services.n8n-custom.user}";
+        mode = "0400";
+        key = "n8n";
+      };
       nextcloud-admin-password = {
         sopsFile = nextcloudFile;
         owner = "nextcloud";

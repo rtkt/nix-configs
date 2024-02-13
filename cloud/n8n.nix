@@ -19,8 +19,12 @@
 in {
   services.n8n-custom = {
     enable = true;
-    memorymax = "8G";
     user = "n8n";
+    key = "${config.sops.secrets.n8n-encryption.path}";
+    queue = {
+      enable = true;
+      redis.passwordFile = config.sops.secrets.n8n-queue.path;
+    };
     smtp = {
       enable = true;
       host = "mail.cock.li";
@@ -39,7 +43,7 @@ in {
       NODE_FUNCTION_ALLOW_BUILTIN = "*";
       NODE_FUNCTION_ALLOW_EXTERNAL = "moment,lodash,any-date-parser";
       HOME = "/var/lib/n8n";
-      N8N_LOG_LEVEL = "warn";
+      N8N_LOG_LEVEL = "debug";
       EXECUTIONS_PROCESS = "main";
       EXECUTIONS_DATA_SAVE_ON_SUCCESS = "none";
       EXECUTION_DATA_PRUNE = "true";
@@ -50,6 +54,10 @@ in {
       N8N_LISTEN_ADDRESS = "localhost";
       WEBHOOK_URL = "http://n8n.rtkt.cloud/";
       NODE_OPTIONS = "--max-old-space-size=2048 --use-largepages=on";
+      DB_TYPE = "postgresdb";
+      DB_POSTGRESDB_DATABASE = "n8n";
+      DB_POSTGRESDB_USER = "n8n";
+      DB_POSTGRESDB_PASSWORD_FILE = "${config.sops.secrets.n8n-db.path}";
     };
   };
 

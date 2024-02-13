@@ -27,6 +27,7 @@
     ./ntfy.nix
     ./packages.nix
     ./partitions.nix
+    ./postgresql.nix
     # ./remote-builds.nix
     ./samba.nix
     ./security.nix

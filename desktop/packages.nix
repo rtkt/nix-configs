@@ -6,7 +6,7 @@
 }: {
   environment = {
     systemPackages = with pkgs; [
-      zoom-us
+      # zoom-us
       remmina
       keepassxc
       gimp
@@ -16,7 +16,7 @@
       radeontop
       redshift-plasma-applet
       corectrl
-      wine-staging
+      # wine-staging
       clementine
       nmap
       speedcrunch
@@ -26,7 +26,7 @@
       tdesktop
       thunderbird
       vscode
-      winetricks
+      # winetricks
       virt-manager
       anydesk
       nix-alien
@@ -34,10 +34,9 @@
       nix-index-update
       shellcheck
       alejandra
-      gnupg
+      # gnupg
       unrar
       marktext
-      gnupg
       android-tools
       android-udev-rules
       simg2img

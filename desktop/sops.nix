@@ -1,5 +1,6 @@
 {config, ...}: let
   passwordFile = secrets/passwords.yaml;
+  davfs2File = secrets/webdav.yaml;
 in {
   sops = {
     secrets = {
@@ -17,6 +18,12 @@ in {
         sopsFile = passwordFile;
         neededForUsers = true;
         key = "rtkt";
+      };
+      davfs2 = {
+        sopsFile = davfs2File;
+        key = "credentials";
+        owner = "${config.services.davfs2.davUser}";
+        mode = "0600";
       };
     };
   };

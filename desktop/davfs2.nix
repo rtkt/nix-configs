@@ -1,8 +1,9 @@
+{ config, ... }:
 {
   services.davfs2 = {
     enable = true;
   };
   users.users.rtkt.extraGroups = [
-    "davfs2"
+    config.services.davfs2.davGroup
   ];
 }

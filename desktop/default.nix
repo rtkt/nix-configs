@@ -23,7 +23,6 @@
     # ./routedns.nix
     # ./samba.nix
     ./security.nix
-    ./sops.nix
     ./sound.nix
     # ./syncthing.nix
     ./tmpfs.nix

@@ -7,6 +7,9 @@
         transaction_isolation = "READ-COMMITTED";
         binlog_format = "ROW";
         skip_networking = true;
+
+        innodb_buffer_pool_size = "1G";
+        innodb_io_capacity = "4000";
       };
     };
   };

@@ -21,6 +21,7 @@
       default_language = "ru";
       default_locale = "ru";
       default_timezone = config.time.timeZone;
+      "filelocking.enabled" = true;
       trashbin_retention_obligation = "auto, 60";
       updatechecker = false;
       logtimezone = config.time.timeZone;

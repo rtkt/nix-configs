@@ -13,7 +13,6 @@
 
     # ./autossh.nix
     ./boot.nix
-    ./davfs2.nix
     # ./go-shadowsocks2-client.nix
     ./gpu.nix
     ./network.nix
@@ -23,6 +22,7 @@
     # ./routedns.nix
     # ./samba.nix
     ./security.nix
+    ./sops.nix
     ./sound.nix
     # ./syncthing.nix
     ./tmpfs.nix

@@ -39,4 +39,10 @@
       host    replication     all             ::1/128                 md5
     '';
   };
+  services.postgresqlBackup = {
+    enable = true;
+    backupAll = true;
+    location = "/media/backup/postgresql";
+    startAt = "*-*-* 03:00:00";
+  };
 }

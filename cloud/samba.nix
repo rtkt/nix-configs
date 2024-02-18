@@ -19,7 +19,7 @@
     '';
     shares.PS2SMB = {
       "smb encrypt" = "disabled";
-      path = "/mnt/ps2smb";
+      path = "/media/hdd/ps2smb";
       browseable = true;
       "guest ok" = true;
       "read only" = false;
@@ -30,6 +30,19 @@
   services.samba = {
     enable = true;
     openFirewall = true;
-    
+    securityType = "user";
+    extraConfig = ''
+      valid users = +users
+      server min protocol = SMB3_02
+    '';
+    shares.hdd = {
+      path = "/media/hdd";
+      "read only" = false;
+      available = true;
+      browseable = true;
+      "guest ok" = false;
+      "create mask" = "0644";
+      "directory mask" = "0755";
+    };
   };
 }

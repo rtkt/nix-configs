@@ -16,17 +16,17 @@ in {
     "/var/lib/nextcloud/data" = {
       device = raid;
       fsType = "btrfs";
-      options = fsRestrictions ++ ["subvolid=258"];
+      options = fsRestrictions ++ ["subvolid=258" "autodefrag"];
     };
     "/media/hdd" = {
       device = hdd;
       fsType = "btrfs";
-      options = fsRestrictions;
+      options = fsRestrictions ++ ["autodefrag" "acl"];
     };
     "/media/backups" = {
       device = raid;
       fsType = "btrfs";
-      options = fsRestrictions ++ ["subvolid=256"];
+      options = fsRestrictions ++ ["subvolid=256" "autodefrag"];
     };
   };
   swapDevices = [];

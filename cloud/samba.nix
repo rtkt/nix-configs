@@ -34,6 +34,7 @@
     extraConfig = ''
       valid users = +users
       server min protocol = SMB3_02
+      server smb encrypt = required
     '';
     shares.hdd = {
       path = "/media/hdd";

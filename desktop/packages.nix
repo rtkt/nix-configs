@@ -49,6 +49,7 @@
       anytype
       androidStudioPackages.beta
       pcsxr
+      nextcloud-client
     ];
     defaultPackages = [];
   };

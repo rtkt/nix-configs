@@ -23,6 +23,12 @@ in {
         neededForUsers = true;
         key = "rtkt";
       };
+      rtkt-unencrypted = {
+        sopsFile = passwordFile;
+        key = "rtkt-unencrypted";
+        owner = "root";
+        mode = "0400";
+      };
       redis-vsdesk = {
         sopsFile = redisFile;
         owner = "redis-vsdesk";

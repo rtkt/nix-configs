@@ -42,7 +42,7 @@
   services.postgresqlBackup = {
     enable = true;
     backupAll = true;
-    location = "/media/backup/postgresql";
+    location = "/media/backups/postgresql";
     startAt = "*-*-* 03:00:00";
   };
 }

@@ -1,4 +1,4 @@
-{config, ...}:
+{config, lib, pkgs, ...}:
 {
   services.samba-for-ps2 = {
     enable = true;
@@ -43,6 +43,19 @@
       "guest ok" = false;
       "create mask" = "0644";
       "directory mask" = "0755";
+    };
+  };
+  systemd.services.set-samba-password = lib.mkIf config.services.samba.enable {
+    enable = true;
+    wantedBy = ["samba.target"];
+    before = ["samba.service"];
+    script = ''
+      PASS="$(cat ${config.sops.secrets.rtkt-unencrypted.path})"
+      ${pkgs.samba}/bin/smbpasswd -x rtkt || true
+      echo -ne "$PASS\n$PASS\n" | ${pkgs.samba}/bin/smbpasswd -sa rtkt
+    '';
+    serviceConfig = {
+      Type = "oneshot";
     };
   };
 }

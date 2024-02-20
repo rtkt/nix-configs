@@ -82,10 +82,12 @@
         ({
           lib,
           config,
+          modulesPath,
           pkgs,
           ...
         }: {
           imports = [
+            (modulesPath + "/profiles/hardened.nix")
             (import ./common/defaults {
               inherit config lib pkgs;
             })

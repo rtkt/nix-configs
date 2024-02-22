@@ -19,5 +19,5 @@
   sound.enable = false;
   # environment.noXlibs = true;
   boot.kernelPackages = pkgs.linuxPackages_hardened;
-  # environment.memoryAllocator.provider = "libc";
+  environment.memoryAllocator.provider = "libc";
 }

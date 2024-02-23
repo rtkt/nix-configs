@@ -13,15 +13,17 @@
     ../common/documentation.nix
     ../common/nozswap.nix
 
+    ./containers.nix
+
     # ./acme.nix
     # ./go-shadowsocks2.nix
     ./boot.nix
-    ./imaginary.nix
+    # ./imaginary.nix
     ./libvirtd.nix
     ./mysql.nix
     ./n8n.nix
     ./network.nix
-    ./nextcloud.nix
+    # ./nextcloud.nix
     ./nginx.nix
     # ./nginx-dns.nix
     ./ntfy.nix

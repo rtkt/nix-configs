@@ -23,17 +23,16 @@
     # ./samba.nix
     ./security.nix
     ./sops.nix
-    # ./sound.nix
+    ./sound.nix
     # ./syncthing.nix
     ./tmpfs.nix
     ./ui.nix
     ./users.nix
   ];
-  sound.enable = true;
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    wireplumber.enable = true;
-  };
-
+  # sound.enable = true;
+  # services.pipewire = {
+  #   enable = true;
+  #   pulse.enable = true;
+  #   wireplumber.enable = true;
+  # };
 }

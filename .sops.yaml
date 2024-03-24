@@ -30,3 +30,8 @@ creation_rules:
       - age:
         - *cloud
         - *cloud_host_key
+  - path_regex: cloud/containers/secrets/[^/]+\.yaml$
+    key_groups:
+      - age:
+        - *cloud
+        - *cloud_host_key

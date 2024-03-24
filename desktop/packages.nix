@@ -44,7 +44,7 @@
       nodejs
       nodePackages.npm
       oplpctools
-      # cataclysm-dda
+      cataclysm-dda
       git-repo
       anytype
       androidStudioPackages.beta

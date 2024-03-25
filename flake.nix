@@ -10,6 +10,10 @@
       url = "github:Mic92/nix-ld";
       inputs.nixpkgs.follows = "nixpkgs"; # not mandatory but recommended
     };
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,6 +33,7 @@
     nix-alien,
     nix-ld,
     alejandra,
+    pre-commit-hooks,
     sops-nix,
     nix-overlay,
   }: let
@@ -45,7 +50,18 @@
       config.allowUnfree = true;
     };
   in {
-    devShells.${system}.default = import ./shell.nix {inherit pkgs;};
+    devShells.${system}.default = nixpkgs.legacyPackages.${system}.mkShell {
+      inherit (self.checks.${system}.pre-commit-check) shellHook;
+      buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
+    };
+    checks = {
+      pre-commit-check = pre-commit-hooks.lib.${system}.run {
+        src = ./.;
+        hooks = {
+          alejandra.enable = true;
+        };
+      };
+    };
     nixosConfigurations.server = nixpkgs.lib.nixosSystem {
       inherit system;
       inherit pkgs;

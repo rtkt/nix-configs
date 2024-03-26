@@ -1,5 +1,9 @@
-{config, lib, pkgs, ...}:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   services.samba-for-ps2 = {
     enable = true;
     openFirewall = true;

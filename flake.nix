@@ -18,10 +18,6 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    alejandra = {
-      url = "github:kamadorueda/alejandra/3.0.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-overlay = {
       url = "github:rtkt/nix-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,7 +28,6 @@
     nixpkgs,
     nix-alien,
     nix-ld,
-    alejandra,
     pre-commit-hooks,
     sops-nix,
     nix-overlay,
@@ -50,10 +45,6 @@
       config.allowUnfree = true;
     };
   in {
-    devShells.${system}.default = nixpkgs.legacyPackages.${system}.mkShell {
-      inherit (self.checks.${system}.pre-commit-check) shellHook;
-      buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
-    };
     checks = {
       pre-commit-check = pre-commit-hooks.lib.${system}.run {
         src = ./.;
@@ -62,6 +53,11 @@
         };
       };
     };
+    devShells.${system}.default = nixpkgs.legacyPackages.${system}.mkShell {
+      inherit (self.checks.${system}.pre-commit-check) shellHook;
+      buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
+    };
+    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
     nixosConfigurations.server = nixpkgs.lib.nixosSystem {
       inherit system;
       inherit pkgs;

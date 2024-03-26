@@ -4,11 +4,11 @@
     nixpkgs.url = "flake:nixpkgs/nixos-unstable";
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
-      inputs.nixpkgs.follows = "nixpkgs"; # not mandatory but recommended
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-ld = {
       url = "github:Mic92/nix-ld";
-      inputs.nixpkgs.follows = "nixpkgs"; # not mandatory but recommended
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
@@ -16,10 +16,6 @@
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    alejandra = {
-      url = "github:kamadorueda/alejandra/3.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-overlay = {
@@ -32,7 +28,6 @@
     nixpkgs,
     nix-alien,
     nix-ld,
-    alejandra,
     pre-commit-hooks,
     sops-nix,
     nix-overlay,
@@ -50,10 +45,6 @@
       config.allowUnfree = true;
     };
   in {
-    devShells.${system}.default = nixpkgs.legacyPackages.${system}.mkShell {
-      inherit (self.checks.${system}.pre-commit-check) shellHook;
-      buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
-    };
     checks = {
       pre-commit-check = pre-commit-hooks.lib.${system}.run {
         src = ./.;
@@ -62,35 +53,40 @@
         };
       };
     };
-    nixosConfigurations.server = nixpkgs.lib.nixosSystem {
-      inherit system;
-      inherit pkgs;
-      modules = [
-        ({
-          lib,
-          config,
-          pkgs,
-          ...
-        }: {
-          imports = [
-            (import ./common/defaults {
-              inherit config lib pkgs;
-            })
-            (import ./modules {
-              inherit config lib pkgs;
-            })
-            (import ./server {
-              inherit config pkgs lib;
-            })
-          ];
-          system.stateVersion = stateVersion;
-          system.configurationRevision =
-            nixpkgs.lib.mkIf (self ? rev) self.rev;
-          nix.registry.nixpkgs.flake = nixpkgs;
-        })
-        sops-nix.nixosModules.sops
-      ];
+    devShells.${system}.default = nixpkgs.legacyPackages.${system}.mkShell {
+      inherit (self.checks.pre-commit-check) shellHook;
+      buildInputs = self.checks.pre-commit-check.enabledPackages;
     };
+    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
+    # nixosConfigurations.server = nixpkgs.lib.nixosSystem {
+    #   inherit system;
+    #   inherit pkgs;
+    #   modules = [
+    #     ({
+    #       lib,
+    #       config,
+    #       pkgs,
+    #       ...
+    #     }: {
+    #       imports = [
+    #         (import ./common/defaults {
+    #           inherit config lib pkgs;
+    #         })
+    #         (import ./modules {
+    #           inherit config lib pkgs;
+    #         })
+    #         (import ./server {
+    #           inherit config pkgs lib;
+    #         })
+    #       ];
+    #       system.stateVersion = stateVersion;
+    #       system.configurationRevision =
+    #         nixpkgs.lib.mkIf (self ? rev) self.rev;
+    #       nix.registry.nixpkgs.flake = nixpkgs;
+    #     })
+    #     sops-nix.nixosModules.sops
+    #   ];
+    # };
     nixosConfigurations.cloud = nixpkgs.lib.nixosSystem {
       inherit system;
       inherit pkgs;

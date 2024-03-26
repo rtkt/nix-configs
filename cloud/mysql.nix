@@ -1,4 +1,9 @@
-{config, lib, pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   services.mysql = {
     enable = true;
     package = pkgs.mariadb_106;
@@ -17,7 +22,8 @@
     enable = true;
     location = "/media/backups/mysql";
     calendar = "Sat *-*-* 03:00:00";
-    databases = [ ]
+    databases =
+      []
       ++ lib.optional (config.services.nextcloud.config.dbtype == "mysql") config.services.nextcloud.config.dbname;
   };
   systemd.services.mysql.serviceConfig = {

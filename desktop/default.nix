@@ -15,6 +15,7 @@
     ./boot.nix
     # ./go-shadowsocks2-client.nix
     ./gpu.nix
+    ./mpv.nix
     ./network.nix
     ./packages.nix
     ./partitions.nix

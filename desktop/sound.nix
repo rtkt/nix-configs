@@ -37,8 +37,8 @@
       #  };
       client."10-config" = {
         "stream.properties" = {
-          "node.latency" = "32/48000";
-          "resample.quality" = 10;
+          "node.latency" = "64/48000";
+          "resample.quality" = 9;
           "channelmix.upmix" = false;
         };
       };

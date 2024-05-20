@@ -6,7 +6,6 @@
 }: {
   services.xserver = {
     enable = true;
-    displayManager.sddm.enable = true;
     desktopManager.plasma5.enable = true;
     deviceSection = ''
       Option "VariableRefresh" "true"
@@ -20,7 +19,8 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "ru_RU.UTF-8";
 
-  services.xserver.displayManager.sddm = {
+  services.displayManager.sddm = {
+    enable = true;
     autoNumlock = true;
   };
 }

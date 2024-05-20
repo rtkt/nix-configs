@@ -10,7 +10,7 @@
           "link.max-buffers" = 16;
           "mem.mlock-all" = true;
           "default.clock.rate" = 48000;
-          "default.clock.quantum" = 32;
+          "default.clock.quantum" = 512;
           "default.clock.min-quantum" = 32;
           "default.clock.max-quantum" = 1024;
         };
@@ -37,7 +37,7 @@
       #  };
       client."10-config" = {
         "stream.properties" = {
-          "node.latency" = "64/48000";
+          "node.latency" = "32/48000";
           "resample.quality" = 9;
           "channelmix.upmix" = false;
         };

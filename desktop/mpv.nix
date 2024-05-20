@@ -9,7 +9,7 @@
       hwdec=vdpau
       vf=vdpaupp=hqscaling:5
       ao=pipewire
-      pipewire-buffer=2000
+      pipewire-buffer=native
       pipewire-volume-mode=channel
     '';
   };

@@ -5,7 +5,6 @@
 }: {
   imports = [
     ./git.nix
-    ./grub.nix
     ./htop.nix
     ./journal.nix
     ./kernel.nix

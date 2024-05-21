@@ -9,15 +9,16 @@
 }: {
   imports = [
     ../common/am3.nix
+    ../common/uefi.nix
     ../common/hosts.nix
     ../common/documentation.nix
     ../common/nozswap.nix
 
-    ./containers.nix
+    # ./containers.nix
 
     # ./acme.nix
     # ./go-shadowsocks2.nix
-    ./boot.nix
+    ./hardware.nix
     # ./imaginary.nix
     ./libvirtd.nix
     ./mysql.nix
@@ -31,7 +32,7 @@
     ./partitions.nix
     ./postgresql.nix
     # ./remote-builds.nix
-    ./samba.nix
+    # ./samba.nix
     ./security.nix
     ./sops.nix
     ./ssh.nix

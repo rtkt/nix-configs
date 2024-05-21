@@ -36,6 +36,7 @@ in {
     };
     settings = {
       N8N_PATH = "/";
+      N8N_SECURE_COOKIE = "false";
       N8N_DEFAULT_LOCALE = "ru-RU";
       GENERIC_TIMEZONE = "${config.time.timeZone}";
       N8N_EDITOR_BASE_URL = "http://n8n.rtkt.cloud";

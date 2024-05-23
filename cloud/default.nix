@@ -30,6 +30,7 @@
     ./ntfy.nix
     ./packages.nix
     ./partitions.nix
+    ./printing.nix
     ./postgresql.nix
     # ./remote-builds.nix
     # ./samba.nix

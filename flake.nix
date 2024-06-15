@@ -58,35 +58,36 @@
       buildInputs = self.checks.pre-commit-check.enabledPackages;
     };
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
-    # nixosConfigurations.server = nixpkgs.lib.nixosSystem {
-    #   inherit system;
-    #   inherit pkgs;
-    #   modules = [
-    #     ({
-    #       lib,
-    #       config,
-    #       pkgs,
-    #       ...
-    #     }: {
-    #       imports = [
-    #         (import ./common/defaults {
-    #           inherit config lib pkgs;
-    #         })
-    #         (import ./modules {
-    #           inherit config lib pkgs;
-    #         })
-    #         (import ./server {
-    #           inherit config pkgs lib;
-    #         })
-    #       ];
-    #       system.stateVersion = stateVersion;
-    #       system.configurationRevision =
-    #         nixpkgs.lib.mkIf (self ? rev) self.rev;
-    #       nix.registry.nixpkgs.flake = nixpkgs;
-    #     })
-    #     sops-nix.nixosModules.sops
-    #   ];
-    # };
+    nixosConfigurations.proxy = nixpkgs.lib.nixosSystem {
+      inherit system;
+      inherit pkgs;
+      modules = [
+        ({
+          lib,
+          config,
+          pkgs,
+          ...
+        }: {
+          imports = [
+            (import ./common/defaults {
+              inherit config lib pkgs;
+            })
+            (import ./modules {
+              inherit config lib pkgs;
+            })
+            (import ./proxy {
+              inherit config pkgs lib;
+            })
+          ];
+          system.stateVersion = "24.05";
+          system.configurationRevision =
+            nixpkgs.lib.mkIf (self ? rev) self.rev;
+          nix.registry.nixpkgs.flake = nixpkgs;
+        })
+        sops-nix.nixosModules.sops
+        nix-overlay.nixosModules.sshguard-custom
+      ];
+    };
     nixosConfigurations.cloud = nixpkgs.lib.nixosSystem {
       inherit system;
       inherit pkgs;

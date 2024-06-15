@@ -7,25 +7,27 @@
   lib,
   ...
 }: {
-  imports = [
-    ./acme.nix
+    imports = [
+      ../common/bios.nix
+
+    # ./acme.nix
     ./compacting.nix
-    ./go-shadowsocks2.nix
+    # ./go-shadowsocks2.nix
     ./hardware-configuration.nix
-    ./iptables.nix
+    # ./iptables.nix
     # ./n8n.nix
     ./network.nix
-    ./nginx.nix
-    ./nginx-dns.nix
-    ./ntfy.nix
-    ./packages.nix
-    ./redis.nix
-    ./remote-builds.nix
+    # ./nginx.nix
+    # ./nginx-dns.nix
+    # ./ntfy.nix
+    # ./packages.nix
+    # ./redis.nix
+    # ./remote-builds.nix
     ./security.nix
     ./sops.nix
     ./ssh.nix
-    ./sysctl.nix
-    ./unbound.nix
+    # ./sysctl.nix
+    # ./unbound.nix
     ./users.nix
   ];
 
@@ -33,7 +35,10 @@
     nixos-upgrade = "cd /etc/nixos && git pull && nixos-rebuild -j1 switch && nix store optimise";
   };
 
-  systemd.extraConfig = ''
-    DefaultLimitNOFILE=16384:524288
-  '';
+  boot.loader.grub.device = "/dev/vda";
+
+  services.smartd.enable = lib.mkForce false;
+  # systemd.extraConfig = ''
+  #   DefaultLimitNOFILE=16384:524288
+  # '';
 }

@@ -7,6 +7,7 @@
       UsePAM = true;
       AuthenticationMethods = "publickey,keyboard-interactive:pam";
       KbdInteractiveAuthentication = true;
+      LogLevel = "VERBOSE";
       PermitRootLogin = "no";
       AllowUsers = [
         "rtkt"

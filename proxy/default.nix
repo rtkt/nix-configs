@@ -37,7 +37,6 @@
 
   boot.loader.grub.device = "/dev/vda";
 
-  services.smartd.enable = lib.mkForce false;
   # systemd.extraConfig = ''
   #   DefaultLimitNOFILE=16384:524288
   # '';

@@ -13,6 +13,7 @@
     ../common/hosts.nix
     ../common/documentation.nix
     ../common/nozswap.nix
+    ../common/smartd.nix
 
     # ./containers.nix
 

@@ -8,6 +8,7 @@
     ../common/am3.nix
     ../common/hosts.nix
     ../common/documentation.nix
+    ../common/smartd.nix
     ../common/multimedia.nix
     ../common/nozswap.nix
 

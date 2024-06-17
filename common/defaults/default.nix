@@ -12,7 +12,6 @@
     ./packages.nix
     ./security.nix
     ./shell.nix
-    ./smartd.nix
     ./sops.nix
     ./ssh.nix
     ./ssh-knownHosts.nix

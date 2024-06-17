@@ -6,7 +6,7 @@
     settings = {
       UsePAM = true;
       AuthenticationMethods = "publickey,keyboard-interactive:pam";
-      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = true;
       PermitRootLogin = "no";
       AllowUsers = [
         "rtkt"

@@ -21,9 +21,11 @@
     enable = true;
     blacklist_threshold = 120;
     blocktime = 600;
-
     ipv6_subnet = 64;
     ipv4_subnet = 24;
+    whitelist = [
+      "185.91.179.79"
+    ];
   };
   programs.ssh = {
     startAgent = true;

@@ -33,7 +33,6 @@
     nix-overlay,
   }: let
     system = "x86_64-linux";
-    stateVersion = "21.11";
     pkgs = import nixpkgs {
       system = system;
       overlays = [
@@ -150,7 +149,7 @@
               inherit config pkgs lib;
             })
           ];
-          system.stateVersion = stateVersion;
+          system.stateVersion = "21.11";
           system.configurationRevision =
             nixpkgs.lib.mkIf (self ? rev) self.rev;
           nix.registry.nixpkgs.flake = nixpkgs;

@@ -66,9 +66,12 @@
           lib,
           config,
           pkgs,
+          modulesPath,
           ...
         }: {
           imports = [
+            (modulesPath + "/profiles/minimal.nix")
+            (modulesPath + "/profiles/hardened.nix")
             (import ./common/defaults {
               inherit config lib pkgs;
             })

@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   environment.variables = {
     TMOUT = "600";
   };
@@ -18,8 +22,9 @@
   ];
   sound.enable = false;
   # environment.noXlibs = true;
-  environment.memoryAllocator.provider = "libc";
+  # environment.memoryAllocator.provider = "libc";
   security.allowSimultaneousMultithreading = true;
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_hardened;
   # services.usbguard = {
   #   enable = true;
   #   presentDevicePolicy = "apply-policy";

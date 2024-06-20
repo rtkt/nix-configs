@@ -22,6 +22,10 @@
       url = "github:rtkt/nix-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = inputs @ {
     self,
@@ -31,6 +35,7 @@
     pre-commit-hooks,
     sops-nix,
     nix-overlay,
+    lanzaboote,
   }: let
     system = "x86_64-linux";
     pkgs = import nixpkgs {

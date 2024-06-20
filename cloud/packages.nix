@@ -4,6 +4,7 @@
   ...
 }: {
   environment.systemPackages = [
+    pkgs.sbctl
     # pkgs.tcpdump
   ];
 }

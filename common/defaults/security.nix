@@ -8,7 +8,6 @@
     mutableUsers = false;
     groups = {
       keys = {};
-      connector = {};
     };
   };
 }

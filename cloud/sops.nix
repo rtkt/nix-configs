@@ -8,11 +8,6 @@
 in {
   sops = {
     secrets = {
-      connector-password = {
-        sopsFile = passwordFile;
-        neededForUsers = true;
-        key = "connector";
-      };
       root-password = {
         sopsFile = passwordFile;
         neededForUsers = true;

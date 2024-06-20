@@ -33,7 +33,7 @@
     ./partitions.nix
     ./postgresql.nix
     # ./remote-builds.nix
-    # ./samba.nix
+    ./samba.nix
     ./security.nix
     ./sops.nix
     ./ssh.nix

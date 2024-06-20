@@ -13,7 +13,7 @@
     globalConfig = ''
       workgroup = WORKGROUP
       map to guest = Bad Password
-      guest account = nextcloud
+      guest account = nobody
       socket options = TCP_NODELAY TCP_KEEPIDLE=20 IPTOS_LOWDELAY SO_KEEPALIVE
       lanman auth = no
       server min protocol = NT1
@@ -31,36 +31,36 @@
       available = true;
     };
   };
-  services.samba = {
-    enable = true;
-    openFirewall = true;
-    securityType = "user";
-    extraConfig = ''
-      valid users = +users
-      server min protocol = SMB3_02
-      server smb encrypt = required
-    '';
-    shares.hdd = {
-      path = "/media/hdd";
-      "read only" = false;
-      available = true;
-      browseable = true;
-      "guest ok" = false;
-      "create mask" = "0644";
-      "directory mask" = "0755";
-    };
-  };
-  systemd.services.set-samba-password = lib.mkIf config.services.samba.enable {
-    enable = true;
-    wantedBy = ["samba.target"];
-    before = ["samba.service"];
-    script = ''
-      PASS="$(cat ${config.sops.secrets.rtkt-unencrypted.path})"
-      ${pkgs.samba}/bin/smbpasswd -x rtkt || true
-      echo -ne "$PASS\n$PASS\n" | ${pkgs.samba}/bin/smbpasswd -sa rtkt
-    '';
-    serviceConfig = {
-      Type = "oneshot";
-    };
-  };
+  # services.samba = {
+  #   enable = true;
+  #   openFirewall = true;
+  #   securityType = "user";
+  #   extraConfig = ''
+  #     valid users = +users
+  #     server min protocol = SMB3_02
+  #     server smb encrypt = required
+  #   '';
+  #   shares.hdd = {
+  #     path = "/media/hdd";
+  #     "read only" = false;
+  #     available = true;
+  #     browseable = true;
+  #     "guest ok" = false;
+  #     "create mask" = "0644";
+  #     "directory mask" = "0755";
+  #   };
+  # };
+  # systemd.services.set-samba-password = lib.mkIf config.services.samba.enable {
+  #   enable = true;
+  #   wantedBy = ["samba.target"];
+  #   before = ["samba.service"];
+  #   script = ''
+  #     PASS="$(cat ${config.sops.secrets.rtkt-unencrypted.path})"
+  #     ${pkgs.samba}/bin/smbpasswd -x rtkt || true
+  #     echo -ne "$PASS\n$PASS\n" | ${pkgs.samba}/bin/smbpasswd -sa rtkt
+  #   '';
+  #   serviceConfig = {
+  #     Type = "oneshot";
+  #   };
+  # };
 }

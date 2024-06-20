@@ -19,6 +19,7 @@
   sound.enable = false;
   # environment.noXlibs = true;
   environment.memoryAllocator.provider = "libc";
+  security.allowSimultaneousMultithreading = true;
   # services.usbguard = {
   #   enable = true;
   #   presentDevicePolicy = "apply-policy";

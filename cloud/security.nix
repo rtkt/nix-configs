@@ -18,13 +18,12 @@
   ];
   sound.enable = false;
   # environment.noXlibs = true;
-  boot.kernelPackages = pkgs.linuxPackages_hardened;
   environment.memoryAllocator.provider = "libc";
-  services.usbguard = {
-    enable = true;
-    presentDevicePolicy = "apply-policy";
-    presentControllerPolicy = "apply-policy";
-    insertedDevicePolicy = "apply-policy";
-    implicitPolicyTarget = "block";
-  };
+  # services.usbguard = {
+  #   enable = true;
+  #   presentDevicePolicy = "apply-policy";
+  #   presentControllerPolicy = "apply-policy";
+  #   insertedDevicePolicy = "apply-policy";
+  #   implicitPolicyTarget = "block";
+  # };
 }

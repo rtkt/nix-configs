@@ -7,7 +7,6 @@
     ./environment.nix
     ./git.nix
     ./htop.nix
-    ./journal.nix
     ./kernel.nix
     ./nix.nix
     ./security.nix

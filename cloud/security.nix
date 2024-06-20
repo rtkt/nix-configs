@@ -3,9 +3,6 @@
   pkgs,
   ...
 }: {
-  environment.variables = {
-    TMOUT = "600";
-  };
   security.pam.loginLimits = [
     {
       domain = "*";
@@ -25,11 +22,4 @@
   # environment.memoryAllocator.provider = "libc";
   security.allowSimultaneousMultithreading = true;
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_hardened;
-  # services.usbguard = {
-  #   enable = true;
-  #   presentDevicePolicy = "apply-policy";
-  #   presentControllerPolicy = "apply-policy";
-  #   insertedDevicePolicy = "apply-policy";
-  #   implicitPolicyTarget = "block";
-  # };
 }

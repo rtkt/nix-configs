@@ -1,8 +1,17 @@
-{ config, lib, pkgs, inputs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: {
   containers = {
     nextcloud = {
-      config = {pkgs, inputs, ...}: {
+      config = {
+        pkgs,
+        inputs,
+        ...
+      }: {
         inherit inputs;
         # modules = [
         #   inputs.sops-nix.nixosModules.sops

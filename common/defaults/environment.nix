@@ -5,10 +5,13 @@
   ...
 }: {
   environment = {
-    systemPackages = with pkgs; [
-      curl
-      nano
+    systemPackages = [
+      pkgs.curl
+      pkgs.micro
     ];
+    variables = {
+      EDITOR = "micro";
+    };
   };
   programs.zsh.ohMyZsh = {
     enable = true;

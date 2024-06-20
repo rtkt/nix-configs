@@ -1,9 +1,15 @@
 {
   config,
-  lib,
   pkgs,
+  lib,
   ...
 }: {
+  environment = {
+    systemPackages = with pkgs; [
+      curl
+      nano
+    ];
+  };
   programs.zsh.ohMyZsh = {
     enable = true;
     plugins =

@@ -22,16 +22,16 @@
     ./hardware.nix
     # ./imaginary.nix
     ./libvirtd.nix
-    ./mysql.nix
-    ./n8n.nix
+    # ./mysql.nix
+    # ./n8n.nix
     ./network.nix
     # ./nextcloud.nix
-    ./nginx.nix
+    # ./nginx.nix
     # ./nginx-dns.nix
-    ./ntfy.nix
+    # ./ntfy.nix
     ./packages.nix
     ./partitions.nix
-    ./postgresql.nix
+    # ./postgresql.nix
     # ./remote-builds.nix
     ./samba.nix
     ./security.nix

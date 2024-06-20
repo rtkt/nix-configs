@@ -29,44 +29,44 @@ in {
         owner = "root";
         mode = "0400";
       };
-      redis-vsdesk = {
-        sopsFile = redisFile;
-        owner = "redis-vsdesk";
-        mode = "0440";
-        group = "redis-vsdesk";
-        key = "vsdesk";
-      };
-      redis-notion = {
-        sopsFile = redisFile;
-        owner = "redis-notion";
-        mode = "0440";
-        group = "redis-notion";
-        key = "notion";
-      };
-      n8n-smtp = {
-        sopsFile = n8nFile;
-        owner = "${config.services.n8n-custom.user}";
-        mode = "0400";
-        key = "smtp-password";
-      };
-      n8n-encryption = {
-        sopsFile = n8nFile;
-        owner = "${config.services.n8n-custom.user}";
-        mode = "0400";
-        key = "encryption";
-      };
-      n8n-db = {
-        sopsFile = n8nFile;
-        owner = "${config.services.n8n-custom.user}";
-        mode = "0400";
-        key = "db";
-      };
-      n8n-queue = {
-        sopsFile = redisFile;
-        owner = "${config.services.n8n-custom.user}";
-        mode = "0400";
-        key = "n8n";
-      };
+      # redis-vsdesk = {
+      #   sopsFile = redisFile;
+      #   owner = "redis-vsdesk";
+      #   mode = "0440";
+      #   group = "redis-vsdesk";
+      #   key = "vsdesk";
+      # };
+      # redis-notion = {
+      #   sopsFile = redisFile;
+      #   owner = "redis-notion";
+      #   mode = "0440";
+      #   group = "redis-notion";
+      #   key = "notion";
+      # };
+      # n8n-smtp = {
+      #   sopsFile = n8nFile;
+      #   owner = "${config.services.n8n-custom.user}";
+      #   mode = "0400";
+      #   key = "smtp-password";
+      # };
+      # n8n-encryption = {
+      #   sopsFile = n8nFile;
+      #   owner = "${config.services.n8n-custom.user}";
+      #   mode = "0400";
+      #   key = "encryption";
+      # };
+      # n8n-db = {
+      #   sopsFile = n8nFile;
+      #   owner = "${config.services.n8n-custom.user}";
+      #   mode = "0400";
+      #   key = "db";
+      # };
+      # n8n-queue = {
+      #   sopsFile = redisFile;
+      #   owner = "${config.services.n8n-custom.user}";
+      #   mode = "0400";
+      #   key = "n8n";
+      # };
       # nextcloud-admin-password = {
       #   sopsFile = nextcloudFile;
       #   owner = "nextcloud";

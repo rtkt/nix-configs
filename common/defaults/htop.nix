@@ -24,6 +24,6 @@
     enable_mouse = 1;
     header_margin = 0;
     tree_view = 1;
-    "screen:Main" = "PID USER PRIORITY NICE M_VIRT M_RESIDENT M_SHARE STATE PERCENT_CPU PERCENT_MEM TIME Command";
+    "screen:Main" = "PID USER PRIORITY NICE M_RESIDENT M_SHARE STATE PERCENT_CPU PERCENT_MEM TIME Command";
   };
 }

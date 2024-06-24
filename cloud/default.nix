@@ -16,6 +16,7 @@
     ../common/smartd.nix
 
     ./hardware.nix
+    ./logging.nix
     ./network.nix
     ./packages.nix
     ./partitions.nix
@@ -27,6 +28,4 @@
     ./tmpfs.nix
     ./users.nix
   ];
-
-  services.logrotate.checkConfig = false;
 }

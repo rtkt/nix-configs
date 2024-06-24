@@ -16,6 +16,7 @@ in {
     "/boot" = {
       device = boot;
       fsType = "vfat";
+      options = ["umask=166" "dmask=077" "uid=0" "gid=0"];
     };
     "/var/lib/nextcloud/data" = {
       device = raid;

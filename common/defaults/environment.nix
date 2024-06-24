@@ -5,10 +5,15 @@
   ...
 }: {
   environment = {
-    systemPackages = [
-      pkgs.curl
-      pkgs.micro
-    ];
+    systemPackages =
+      [
+        pkgs.curl
+      ]
+      ++ (
+        if config.services.xserver.enable == true
+        then [pkgs.micro]
+        else [pkgs.micro-nogui]
+      );
     variables = {
       EDITOR = "micro";
     };

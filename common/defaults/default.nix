@@ -13,4 +13,5 @@
   time.timeZone = lib.mkDefault "Asia/Krasnoyarsk";
   networking.useDHCP = lib.mkDefault false;
   boot.consoleLogLevel = lib.mkDefault 3;
+  services.logrotate.enable = lib.mkDefault false;
 }

@@ -3,7 +3,6 @@ let
   root = "/dev/disk/by-uuid/80211811-0f30-403e-b992-4e65b4c27d53";
   boot = "/dev/disk/by-uuid/16C4-7E71";
   raid = "/dev/md/cloud:importantdata";
-  hdd = "/dev/disk/by-uuid/9d1be106-3e62-49e4-9bd8-7e888d995d6f";
 in {
   fileSystems = {
     "/" = {
@@ -11,7 +10,7 @@ in {
       fsType = "btrfs";
       options = [
         "defaults"
-        "noatime"
+        "relatime"
       ];
     };
     "/boot" = {
@@ -24,7 +23,7 @@ in {
       options = fsRestrictions ++ ["subvolid=258" "autodefrag"];
     };
     "/media/hdd" = {
-      device = hdd;
+      device = "/dev/storage/data";
       fsType = "btrfs";
       options = fsRestrictions ++ ["autodefrag" "acl"];
     };

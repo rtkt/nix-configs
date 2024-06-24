@@ -23,5 +23,4 @@
       device = "/dev/disk/by-id/ata-INTEL_SSDSC2KW256G8_PHLA913305PY256CGN";
     };
   };
-  hardware.firmware = [pkgs.linux-firmware];
 }

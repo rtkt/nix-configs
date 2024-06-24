@@ -9,6 +9,7 @@
   ];
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.firmware = [pkgs.linux-firmware];
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   boot.kernelModules = ["k10temp" "it87"];
   environment.systemPackages = [

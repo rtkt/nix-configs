@@ -6,4 +6,5 @@
     extraModulePackages = [];
     swraid.enable = true;
   };
+  services.irqbalance.enable = false;
 }

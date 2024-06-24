@@ -106,6 +106,7 @@
           modulesPath,
           pkgs,
           sops-nix,
+          lanzaboote,
           ...
         }: {
           imports = [
@@ -130,6 +131,7 @@
         nix-overlay.nixosModules.ntfy
         nix-overlay.nixosModules.samba-for-ps2
         sops-nix.nixosModules.sops
+        lanzaboote.nixosModules.lanzaboote
       ];
     };
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {

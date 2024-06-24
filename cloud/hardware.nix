@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   boot = {
     initrd.availableKernelModules = ["ahci" "ohci_pci" "ehci_pci" "xhci_pci" "usb_storage" "usbhid" "sd_mod"];
     initrd.kernelModules = [];
@@ -6,4 +6,5 @@
     extraModulePackages = [];
     swraid.enable = true;
   };
+  hardware.firmware = [pkgs.linux-firmware];
 }

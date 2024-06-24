@@ -24,7 +24,6 @@
     ./security.nix
     ./sops.nix
     ./ssh.nix
-    ./sysctl.nix
     ./tmpfs.nix
     ./users.nix
   ];

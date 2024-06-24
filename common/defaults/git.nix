@@ -1,15 +1,15 @@
-{
+{lib, ...}: {
   programs.git = {
-    enable = true;
+    enable = lib.mkDefault true;
     config = {
-      init.defaultBranch = "master";
-      pull.rebase = true;
-      user.email = "rtkt@protonmail.com";
-      user.name = "rtkt";
+      init.defaultBranch = lib.mkDefault "master";
+      pull.rebase = lib.mkDefault true;
+      user.email = lib.mkDefault "rtkt@protonmail.com";
+      user.name = lib.mkDefault "rtkt";
 
-      commit.gpgsign = true;
-      gpg.format = "ssh";
-      user.signingkey = "~/.ssh/github_key";
+      commit.gpgsign = lib.mkDefault true;
+      gpg.format = lib.mkDefault "ssh";
+      user.signingkey = lib.mkDefault "~/.ssh/github_key";
     };
   };
 }

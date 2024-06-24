@@ -1,6 +1,6 @@
-{
+{lib, ...}: {
   documentation = {
-    info.enable = false;
-    man.generateCaches = true;
+    info.enable = lib.mkDefault false;
+    man.generateCaches = lib.mkDefault true;
   };
 }

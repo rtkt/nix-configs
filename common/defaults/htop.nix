@@ -1,5 +1,5 @@
-{
-  programs.htop.enable = true;
+{lib, ...}: {
+  programs.htop.enable = lib.mkDefault true;
   programs.htop.settings = {
     sort_key = 46;
     sort_direction = -1;

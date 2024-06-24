@@ -1,3 +1,3 @@
-{
-  services.irqbalance.enable = true;
+{lib, ...}: {
+  services.irqbalance.enable = lib.mkDefault true;
 }

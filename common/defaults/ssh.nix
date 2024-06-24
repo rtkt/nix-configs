@@ -1,14 +1,14 @@
-{
-  security.pam.services.sshd.googleAuthenticator.enable = true;
+{lib, ...}: {
+  security.pam.services.sshd.googleAuthenticator.enable = lib.mkDefault true;
   services.openssh = {
-    enable = true;
-    allowSFTP = false;
+    enable = lib.mkDefault true;
+    allowSFTP = lib.mkDefault false;
     settings = {
-      UsePAM = true;
-      AuthenticationMethods = "publickey,keyboard-interactive:pam";
-      KbdInteractiveAuthentication = true;
-      LogLevel = "VERBOSE";
-      PermitRootLogin = "no";
+      UsePAM = lib.mkDefault true;
+      AuthenticationMethods = lib.mkDefault "publickey,keyboard-interactive:pam";
+      KbdInteractiveAuthentication = lib.mkDefault true;
+      LogLevel = lib.mkDefault "VERBOSE";
+      PermitRootLogin = lib.mkDefault "no";
       AllowUsers = [
         "rtkt"
       ];
@@ -18,19 +18,19 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKTbeXH8hv6wLYvRf2f5Zlv7thmit+FilHqTuLWOqojM rtkt@desktop"
   ];
   services.sshguard-custom = {
-    enable = true;
-    blacklist_threshold = 120;
-    blocktime = 600;
-    ipv6_subnet = 64;
-    ipv4_subnet = 24;
+    enable = lib.mkDefault true;
+    blacklist_threshold = lib.mkDefault 120;
+    blocktime = lib.mkDefault 600;
+    ipv6_subnet = lib.mkDefault 64;
+    ipv4_subnet = lib.mkDefault 24;
     whitelist = [
       "185.91.179.79"
       "100.65.0.19"
     ];
   };
   programs.ssh = {
-    startAgent = true;
-    agentTimeout = "120h";
+    startAgent = lib.mkDefault true;
+    agentTimeout = lib.mkDefault "120h";
     knownHosts = {
       "github.com".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
       "107.173.134.188".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKxPbt+6oI8kQSgrDFmDOUO2VrqbrtXtbhhlRBvjIK4+";

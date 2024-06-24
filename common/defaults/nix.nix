@@ -1,16 +1,20 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   nix = {
     gc = {
-      dates = "04:00";
-      options = "--delete-older-than 45d";
+      dates = lib.mkDefault "04:00";
+      options = lib.mkDefault "--delete-older-than 45d";
     };
     optimise = {
-      automatic = true;
+      automatic = lib.mkDefault true;
       dates = [
         "04:40"
       ];
     };
-    extraOptions = ''
+    extraOptions = lib.mkDefault ''
       experimental-features = nix-command flakes
     '';
   };

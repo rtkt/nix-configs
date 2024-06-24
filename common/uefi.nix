@@ -1,10 +1,10 @@
-{
+{lib, ...}: {
   boot.loader = {
     systemd-boot = {
-      enable = true;
-      memtest86.enable = true;
+      enable = lib.mkDefault true;
+      memtest86.enable = lib.mkDefault true;
     };
-    efi.efiSysMountPoint = "/boot";
-    efi.canTouchEfiVariables = true;
+    efi.efiSysMountPoint = lib.mkDefault "/boot";
+    efi.canTouchEfiVariables = lib.mkDefault true;
   };
 }

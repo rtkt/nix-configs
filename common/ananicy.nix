@@ -1,10 +1,14 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   services.ananicy = {
-    enable = true;
-    package = pkgs.ananicy-cpp;
-    rulesProvider = pkgs.ananicy-cpp;
+    enable = lib.mkDefault true;
+    package = lib.mkDefault pkgs.ananicy-cpp;
+    rulesProvider = lib.mkDefault pkgs.ananicy-cpp;
     settings = {
-      check_freq = 5;
+      check_freq = lib.mkDefault 5;
     };
     extraTypes = [
       {

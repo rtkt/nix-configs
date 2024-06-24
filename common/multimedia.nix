@@ -1,10 +1,6 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+{lib, ...}: {
   imports = [
     ./ananicy.nix
   ];
-  security.rtkit.enable = true;
+  security.rtkit.enable = lib.mkDefault true;
 }

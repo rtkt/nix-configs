@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+{lib, ...}: {
   imports = [
     ./environment.nix
     ./git.nix
@@ -14,7 +10,7 @@
     ./ssh.nix
   ];
 
-  time.timeZone = "Asia/Krasnoyarsk";
-  networking.useDHCP = false;
-  boot.consoleLogLevel = 3;
+  time.timeZone = lib.mkDefault "Asia/Krasnoyarsk";
+  networking.useDHCP = lib.mkDefault false;
+  boot.consoleLogLevel = lib.mkDefault 3;
 }

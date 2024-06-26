@@ -33,6 +33,10 @@
         value = 1000;
       }
     ];
+    pam.services.su = {
+      requireWheel = lib.mkForce true;
+      rootOK = lib.mkForce false;
+    };
   };
   # environment.memoryAllocator.provider = "libc";
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_hardened;

@@ -45,4 +45,5 @@
     enable = true;
     pkiBundle = "/etc/secureboot";
   };
+  nix.settings.allowed-users = lib.mkForce ["root"];
 }

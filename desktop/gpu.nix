@@ -7,7 +7,7 @@
   boot.kernelParams = [
     "amdgpu.runpm=0"
   ];
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
       libvdpau
@@ -17,8 +17,6 @@
     extraPackages32 = with pkgs; [
       driversi686Linux.amdvlk
     ];
-    driSupport = true;
-    driSupport32Bit = true;
   };
   services.xserver.videoDrivers = ["amdgpu"];
 }

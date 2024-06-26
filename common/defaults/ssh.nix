@@ -9,6 +9,10 @@
       KbdInteractiveAuthentication = lib.mkDefault true;
       LogLevel = lib.mkDefault "VERBOSE";
       PermitRootLogin = lib.mkDefault "no";
+      AllowTcpForwarding = lib.mkDefault true;
+      X11Forwarding = lib.mkDefault false;
+      AllowAgentForwarding = lib.mkDefault false;
+      AllowStreamLocalForwarding = lib.mkDefault false;
       AllowUsers = [
         "rtkt"
       ];

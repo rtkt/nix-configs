@@ -37,4 +37,6 @@
   #   pulse.enable = true;
   #   wireplumber.enable = true;
   # };
+
+  hardware.mcelog.enable = true;
 }

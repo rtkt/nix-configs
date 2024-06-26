@@ -17,6 +17,7 @@
 
     ./hardware.nix
     ./logging.nix
+    ./minimization.nix
     ./network.nix
     ./packages.nix
     ./partitions.nix

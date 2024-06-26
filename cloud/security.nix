@@ -17,8 +17,6 @@
       value = 1000;
     }
   ];
-  sound.enable = false;
-  # environment.noXlibs = true;
   # environment.memoryAllocator.provider = "libc";
   security.allowSimultaneousMultithreading = true;
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_hardened;

@@ -8,7 +8,7 @@
     enable = true;
     openFirewall = true;
     restrictAccess = true;
-    allowedDevice = "FC:0F:E6:18:2A:56";
+    allowedDevices = ["FC:0F:E6:18:2A:56" "94:de:80:3d:cd:58"];
     port = "54";
     globalConfig = ''
       workgroup = WORKGROUP

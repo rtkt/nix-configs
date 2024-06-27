@@ -46,5 +46,13 @@
     j = "journalctl";
     jb = "journalctl -xb";
     je = "journalctl -xe";
+    g = "git";
+    ga = "git add";
+    gc = "git commit -v";
+    gca = "git commit --amend -v";
+    gup = "git push";
+    gdown = "git pull";
+    gp = "git pull";
+    gpush = "git push";
   };
 }

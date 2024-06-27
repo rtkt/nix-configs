@@ -21,10 +21,7 @@
   programs.zsh.ohMyZsh = {
     enable = lib.mkDefault true;
     plugins =
-      [
-        "systemd"
-        "common-aliases"
-      ]
+      []
       ++ lib.optional (config.services.xserver.enable) "bgnotify";
     theme = lib.mkDefault "robbyrussell";
   };
@@ -33,5 +30,21 @@
   programs.zsh.shellAliases = {
     ssh-agent = "ssh-agent -t ${config.programs.ssh.agentTimeout}";
     list-generations = "nix-env -p /nix/var/nix/profiles/system --list-generations";
+    rb = "nixos-rebuild switch";
+    test = "nixos-rebuild test";
+    G = " | grep ";
+    H = " | head";
+    T = " | tail";
+    L = " | less";
+    c = "cat";
+    m = "micro";
+    l = "ls -lha";
+    s = "systemctl";
+    scat = "systemctl cat";
+    sst = "systemclt status";
+    sres = "systemctl restart";
+    j = "journalctl";
+    jb = "journalctl -xb";
+    je = "journalctl -xe";
   };
 }

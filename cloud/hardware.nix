@@ -8,7 +8,7 @@
       btrfs = true;
       zfs = true;
     };
-    swraid.enable = true;
+    # swraid.enable = true;
   };
   services.irqbalance.enable = false;
   networking.hostId = "2aa4624b";

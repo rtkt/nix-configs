@@ -30,8 +30,9 @@
   programs.zsh.shellAliases = {
     ssh-agent = "ssh-agent -t ${config.programs.ssh.agentTimeout}";
     list-generations = "nix-env -p /nix/var/nix/profiles/system --list-generations";
-    rb = "nixos-rebuild switch";
-    test = "nixos-rebuild test";
+    rb = "nixos-rebuild ";
+    rbb = "nixos-rebuild boot";
+    rbt = "nixos-rebuild test";
     G = " | grep ";
     H = " | head";
     T = " | tail";

@@ -29,5 +29,6 @@
     ./sops.nix
     ./tmpfs.nix
     ./users.nix
+    ./zfs.nix
   ];
 }

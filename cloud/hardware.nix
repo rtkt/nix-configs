@@ -4,7 +4,12 @@
     initrd.kernelModules = [];
     kernelModules = ["kvm-amd" "hid_microsoft" "hid_generic" "usbhid" "xxhash_generic"];
     extraModulePackages = [];
+    supportedFilesystems = {
+      btrfs = true;
+      zfs = true;
+    };
     swraid.enable = true;
   };
   services.irqbalance.enable = false;
+  networking.hostId = "2aa4624b";
 }

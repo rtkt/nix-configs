@@ -7,14 +7,15 @@
   lib,
   ...
 }: {
-    imports = [
-      ../common/bios.nix
+  imports = [
+    ../common/bios.nix
 
     # ./acme.nix
     ./compacting.nix
     # ./go-shadowsocks2.nix
     ./hardware-configuration.nix
     # ./iptables.nix
+    ./logging.nix
     # ./n8n.nix
     ./network.nix
     # ./nginx.nix

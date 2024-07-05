@@ -33,7 +33,7 @@
     rb = "nixos-rebuild ";
     rbb = "nixos-rebuild boot";
     rbt = "nixos-rebuild test";
-    G = " | grep ";
+    G = " | grep";
     H = " | head";
     T = " | tail";
     L = " | less";
@@ -53,7 +53,7 @@
     gca = "git commit --amend -v";
     gup = "git push";
     gdown = "git pull";
-    gp = "git pull";
-    gpush = "git push";
+    gs = "git status";
+    gl = "git log";
   };
 }

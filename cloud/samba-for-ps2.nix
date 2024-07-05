@@ -35,7 +35,11 @@
     enable = true;
     enforce = false;
     profile = ''
-
+      #include <tunables/global>
+      ${pkgs.samba-for-ps2}/sbin/smbd {
+      	"${config.services.samba-for-ps2.shares.PS2SMB.path}/" rk,
+      	"${config.services.samba-for-ps2.shares.PS2SMB.path}/**" lrwk,
+      }
     '';
   };
 }

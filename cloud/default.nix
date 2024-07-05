@@ -18,17 +18,16 @@
     ./containers
 
     ./hardware.nix
+    ./fs.nix
     ./logging.nix
     ./minimization.nix
     ./network.nix
     # ./nginx.nix
     ./packages.nix
-    ./partitions.nix
     ./samba.nix
     ./security.nix
     ./sops.nix
     ./tmpfs.nix
     ./users.nix
-    ./zfs.nix
   ];
 }

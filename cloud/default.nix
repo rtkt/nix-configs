@@ -24,7 +24,7 @@
     ./network.nix
     # ./nginx.nix
     ./packages.nix
-    ./samba.nix
+    ./samba-for-ps2.nix
     ./security.nix
     ./sops.nix
     ./tmpfs.nix

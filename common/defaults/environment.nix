@@ -42,7 +42,7 @@
     l = "ls -lha";
     s = "systemctl";
     scat = "systemctl cat";
-    sst = "systemclt status";
+    sst = "systemctl status";
     sres = "systemctl restart";
     j = "journalctl";
     jb = "journalctl -xb";

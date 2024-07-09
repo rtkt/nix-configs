@@ -121,7 +121,7 @@
               inherit config pkgs lib; # sops-nix;
             })
           ];
-          system.stateVersion = "23.11";
+          system.stateVersion = "24.05";
           system.configurationRevision =
             nixpkgs.lib.mkIf (self ? rev) self.rev;
           nix.registry.nixpkgs.flake = nixpkgs;

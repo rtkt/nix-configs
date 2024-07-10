@@ -43,17 +43,17 @@
   boot.loader.systemd-boot.enable = lib.mkForce false;
   boot.lanzaboote = {
     enable = true;
-    pkiBundle = "/etc/secureboot";
+    pkiBundle = "/persist/etc/secureboot";
   };
   nix.settings.allowed-users = lib.mkForce ["root"];
   services.openssh.settings.AuthenticationMethods = "publickey";
   services.openssh.hostKeys = [
     {
-      path = "/etc/ssh/ssh_host_rsa_key";
+      path = "/persist/etc/ssh/ssh_host_rsa_key";
       type = "rsa";
     }
     {
-      path = "/etc/ssh/ssh_host_ed25519_key";
+      path = "/persist/etc/ssh/ssh_host_ed25519_key";
       type = "ed25519";
     }
   ];

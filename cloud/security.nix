@@ -46,6 +46,7 @@
     pkiBundle = "/etc/secureboot";
   };
   nix.settings.allowed-users = lib.mkForce ["root"];
+  services.openssh.settings.AuthenticationMethods = "publickey";
   services.openssh.hostKeys = [
     {
       path = "/etc/ssh/ssh_host_rsa_key";

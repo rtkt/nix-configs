@@ -1,19 +1,15 @@
-let
-  genRootMount = pool: path: {
-    "/${path}" = {
-      device =
-        if path == ""
-        then pool
-        else "${pool}/${path}";
-      fsType = "zfs";
-    };
+{lib, ...}: let
+  genMount = device: target: options: {
+    "${target}" =
+      {
+        inherit device;
+        fsType = "zfs";
+      }
+      // options;
   };
-  genMediaMount = path: {
-    "/media/${path}" = {
-      device = path;
-      fsType = "zfs";
-    };
-  };
+  genRootMount = device: path:
+    genMount device path {neededForBoot = true;};
+  genMediaMount = path: genMount path "/media/${path}" {};
   genLinkSettings = path: {
     "${path}" = {
       "L+" = {
@@ -48,10 +44,13 @@ in {
     // genMediaMount "filestorage/files/Videos"
     // genMediaMount "filestorage/torrents"
     // genMediaMount "filestorage/ps2smb"
-    // genRootMount root ""
-    // genRootMount root "etc"
-    // genRootMount root "nix"
-    // genRootMount root "persist";
+    // genRootMount root "/"
+    // genRootMount "${root}/etc" "/etc"
+    // genRootMount "${root}/nix" "/nix"
+    // genRootMount "${root}/persist" "/persist"
+    // genRootMount "${root}/persist/rtkt" "/home/rtkt"
+    // genRootMount "${root}/persist/root" "/root"
+    // genRootMount "${root}/persist/logs" "/var/log";
   swapDevices = [{device = "/dev/disk/by-id/ata-Samsung_SSD_870_EVO_1TB_S74ZNX0W302758N-part1";}];
   systemd.tmpfiles.settings."01-linking-from-persist" =
     {}

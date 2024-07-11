@@ -19,15 +19,21 @@
   };
   root = "root";
 in {
-  boot.extraModprobeConfig = ''
-    options zfs zfs_nopwrite_enabled=1
-  '';
-  boot.zfs = {
-    devNodes = "/dev/disk/by-id";
-    extraPools = [
-      "raid"
-      "filestorage"
-    ];
+  boot = {
+    extraModprobeConfig = ''
+      options zfs zfs_nopwrite_enabled=1
+    '';
+    initrd.postDeviceCommands = lib.mkAfter ''
+      zfs rollback -r root@clean
+      zfs rollback -r root/etc@clean
+    '';
+    zfs = {
+      devNodes = "/dev/disk/by-id";
+      extraPools = [
+        "raid"
+        "filestorage"
+      ];
+    };
   };
   fileSystems =
     {

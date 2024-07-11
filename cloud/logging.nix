@@ -4,7 +4,7 @@
     storage = "persistent";
     rateLimitInterval = "0";
     extraConfig = ''
-      Compress=1G
+      Compress=no
       MaxRetentionSec=2month
       SystemMaxUse=40G
     '';

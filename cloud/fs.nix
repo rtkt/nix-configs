@@ -27,13 +27,7 @@ in {
       zfs rollback -r root@clean
       zfs rollback -r root/etc@clean
     '';
-    zfs = {
-      devNodes = "/dev/disk/by-id";
-      extraPools = [
-        "raid"
-        "filestorage"
-      ];
-    };
+    zfs.devNodes = "/dev/disk/by-id";
   };
   fileSystems =
     {

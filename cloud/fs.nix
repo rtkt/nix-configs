@@ -53,12 +53,13 @@ in {
     // genRootMount root "nix"
     // genRootMount root "persist";
   swapDevices = [{device = "/dev/disk/by-id/ata-Samsung_SSD_870_EVO_1TB_S74ZNX0W302758N-part1";}];
-  systemd.tmpfiles.settings."01-host-keys" =
+  systemd.tmpfiles.settings."01-linking-from-persist" =
     {}
     // genLinkSettings "/etc/ssh/ssh_host_rsa_key"
     // genLinkSettings "/etc/ssh/ssh_host_rsa_key.pub"
     // genLinkSettings "/etc/ssh/ssh_host_ed25519_key"
-    // genLinkSettings "/etc/ssh/ssh_host_ed25519_key.pub";
+    // genLinkSettings "/etc/ssh/ssh_host_ed25519_key.pub"
+    // genLinkSettings "/etc/nixos";
   # services.fstrim = {
   #   enable = true;
   #   interval = "05:00";

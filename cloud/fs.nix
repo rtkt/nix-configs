@@ -14,6 +14,13 @@ let
       fsType = "zfs";
     };
   };
+  genLinkSettings = path: {
+    "${path}" = {
+      "L+" = {
+        argument = "/persist${path}";
+      };
+    };
+  };
   root = "root";
 in {
   boot.extraModprobeConfig = ''
@@ -46,8 +53,14 @@ in {
     // genRootMount root "nix"
     // genRootMount root "persist";
   swapDevices = [{device = "/dev/disk/by-id/ata-Samsung_SSD_870_EVO_1TB_S74ZNX0W302758N-part1";}];
-  services.fstrim = {
-    enable = true;
-    interval = "05:00";
-  };
+  systemd.tmpfiles.settings."01-host-keys" =
+    {}
+    // genLinkSettings "/etc/ssh/ssh_host_rsa_key"
+    // genLinkSettings "/etc/ssh/ssh_host_rsa_key.pub"
+    // genLinkSettings "/etc/ssh/ssh_host_ed25519_key"
+    // genLinkSettings "/etc/ssh/ssh_host_ed25519_key.pub";
+  # services.fstrim = {
+  #   enable = true;
+  #   interval = "05:00";
+  # };
 }

@@ -3,7 +3,7 @@ keys:
   - &desktop_host_key age1hj3692ukgdfltp00szfncyfxzdx4769yx6dp68dhgd368vj6ushqppyyhc
   - &proxy age1lj0xgvfmutnzmdnm9fjdrz79s9uc63yeac32k6u5rueu7tjwag5qnj5j05
   - &proxy_host_key age1cd9jp563dqpdsecdwy27gh2v98laapf9zp3uyv0wsx90aeut5pds2l0x23
-  - &cloud age1kvkmmmkf8ajy64umcle2vkjysry3tgdqnzsllakramp32mwzgc6qget36g
+  - &cloud age1cn37wkwspsf8xnuwy23lt6yewmedm3n82f7kxehmlx3qal3z3swqnqwqx8
   - &cloud_host_key age17l3jvgx6rnkgw5lt8pttfwx50pj009g3hfjl3qz6c3uk3kvlv5wq8wj6mm
 creation_rules:
   - path_regex: common/defaults/secrets/[^/]+\.yaml$

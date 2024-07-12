@@ -1,4 +1,8 @@
-{config, ...}: let
+{
+  config,
+  lib,
+  ...
+}: let
   passwordFile = secrets/passwords.yaml;
   redisFile = secrets/redis.yaml;
   nextcloudFile = secrets/nextcloud.yaml;
@@ -7,6 +11,10 @@
   mysqlFile = secrets/mysql.yaml;
 in {
   sops = {
+    age.sshKeyPaths = lib.mkForce [
+      "/persist/etc/ssh/ssh_host_ed25519_key"
+      "/root/.ssh/sops-nix"
+    ];
     secrets = {
       root-password = {
         sopsFile = passwordFile;

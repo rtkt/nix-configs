@@ -82,7 +82,6 @@ in {
     '';
     initrd.postDeviceCommands = lib.mkAfter ''
       zfs rollback -r root@clean
-      zfs rollback -r root/etc@clean
 
       ${genZFSSetCommand rootProps root}
       ${genZFSSetCommand nixProps "${root}/nix"}
@@ -107,7 +106,6 @@ in {
     // genMediaMount "filestorage/torrents" mediaOpts
     // genMediaMount "filestorage/ps2smb" mediaOpts
     // genMount root "/" rootOpts
-    // genMount "${root}/etc" "/etc" rootOpts
     // genMount "${root}/nix" "/nix" storeOpts
     // genMount "${root}/persist" "/persist" persistOpts
     // genMount "${root}/persist/rtkt" "/home/rtkt" rootOpts
@@ -131,8 +129,8 @@ in {
     wantedBy = ["zfs.target"];
     script = ''
       ${genZFSSetCommand mediaProps "filestorage/files"}
-            ${genZFSSetCommand mediaProps "filestorage/ps2smb"}
-            ${genZFSSetCommand defaultProps "raid"}
+      ${genZFSSetCommand mediaProps "filestorage/ps2smb"}
+      ${genZFSSetCommand defaultProps "raid"}
     '';
     serviceConfig = {
       Type = "exec";

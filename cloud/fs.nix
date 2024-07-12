@@ -1,4 +1,8 @@
-{lib, ...}: let
+{
+  lib,
+  pkgs,
+  ...
+}: let
   genMount = device: target: options: {
     "${target}" =
       {
@@ -7,7 +11,7 @@
       }
       // options;
   };
-  genMediaMount = path: genMount path "/media/${path}" {};
+  genMediaMount = path: options: genMount path "/media/${path}" options;
   genLinkSettings = path: {
     "${path}" = {
       "L+" = {
@@ -15,14 +19,61 @@
       };
     };
   };
+  genProps = props: builtins.concatStringsSep " " (lib.mapAttrsToList (name: value: "${name}=${value}") props);
+  genZFSSetCommand = props: datastore: builtins.concatStringsSep " " ["${pkgs.zfs}/bin/zfs set" (genProps props) datastore];
   rootOpts = {
-    options = lib.mkForce ["rw" "noatime" "noexec" "nosuid" "nodev" "noauto"];
+    options = lib.mkForce ["rw" "noatime" "noexec" "nosuid" "nodev"];
+    neededForBoot = true;
+  };
+  persistOpts = {
+    options = lib.mkForce ["rw" "noatime" "exec" "nosuid" "nodev"];
     neededForBoot = true;
   };
   storeOpts = {
-    options = lib.mkForce ["ro" "noatime" "noauto" "casesensitive"];
+    options = lib.mkForce ["rw" "noatime" "exec" "suid"];
     neededForBoot = true;
   };
+  mediaOpts = {
+    options = lib.mkForce ["rw" "relatime" "noexec" "nosuid" "nodev"];
+  };
+  defaultProps = {
+    canmount = "noauto";
+    checksum = "blake3";
+    dedup = "off";
+    xattr = "sa";
+    mountpoint = "legacy";
+  };
+  rootProps =
+    {
+      compression = "zstd";
+      logbias = "latency";
+    }
+    // defaultProps;
+  nixProps =
+    {
+      recordsize = "8M";
+    }
+    // defaultProps
+    // rootProps;
+  logProps =
+    {
+      recordsize = "128K";
+      compression = "zstd-9";
+      logbias = "latency";
+    }
+    // defaultProps;
+  mediaProps =
+    {
+      acltype = "off";
+      recordsize = "8M";
+      logbias = "throughput";
+    }
+    // defaultProps;
+  torrentProps =
+    {
+      recordsize = "16K";
+    }
+    // defaultProps;
   root = "root";
 in {
   boot = {
@@ -32,6 +83,13 @@ in {
     initrd.postDeviceCommands = lib.mkAfter ''
       zfs rollback -r root@clean
       zfs rollback -r root/etc@clean
+
+      ${genZFSSetCommand rootProps root}
+      ${genZFSSetCommand nixProps "${root}/nix"}
+      ${genZFSSetCommand rootProps "${root}/persist"}
+      ${genZFSSetCommand rootProps "${root}/persist/rtkt"}
+      ${genZFSSetCommand rootProps "${root}/persist/root"}
+      ${genZFSSetCommand logProps "${root}/persist/logs"}
     '';
     zfs.devNodes = "/dev/disk/by-id";
   };
@@ -43,17 +101,15 @@ in {
         options = ["umask=177" "dmask=077" "uid=0" "gid=0"];
       };
     }
-    // genMediaMount "raid"
-    // genMediaMount "filestorage"
-    // genMediaMount "filestorage/files"
-    // genMediaMount "filestorage/files/Games"
-    // genMediaMount "filestorage/files/Videos"
-    // genMediaMount "filestorage/torrents"
-    // genMediaMount "filestorage/ps2smb"
+    // genMediaMount "raid" mediaOpts
+    // genMediaMount "filestorage" mediaOpts
+    // genMediaMount "filestorage/files" mediaOpts
+    // genMediaMount "filestorage/torrents" mediaOpts
+    // genMediaMount "filestorage/ps2smb" mediaOpts
     // genMount root "/" rootOpts
     // genMount "${root}/etc" "/etc" rootOpts
     // genMount "${root}/nix" "/nix" storeOpts
-    // genMount "${root}/persist" "/persist" rootOpts
+    // genMount "${root}/persist" "/persist" persistOpts
     // genMount "${root}/persist/rtkt" "/home/rtkt" rootOpts
     // genMount "${root}/persist/root" "/root" rootOpts
     // genMount "${root}/persist/logs" "/var/log" rootOpts;
@@ -69,4 +125,17 @@ in {
   #   enable = true;
   #   interval = "05:00";
   # };
+  systemd.services."zfs-set-props-on-non-root-vdevs" = {
+    description = "A oneshot service to set ZFS datastore props on non-root vdevs";
+    after = ["zfs-import.target"];
+    wantedBy = ["zfs.target"];
+    script = ''
+      ${genZFSSetCommand mediaProps "filestorage/files"}
+            ${genZFSSetCommand mediaProps "filestorage/ps2smb"}
+            ${genZFSSetCommand defaultProps "raid"}
+    '';
+    serviceConfig = {
+      Type = "exec";
+    };
+  };
 }

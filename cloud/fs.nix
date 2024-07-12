@@ -7,8 +7,6 @@
       }
       // options;
   };
-  genRootMount = device: path:
-    genMount device path {neededForBoot = true;};
   genMediaMount = path: genMount path "/media/${path}" {};
   genLinkSettings = path: {
     "${path}" = {
@@ -16,6 +14,14 @@
         argument = "/persist${path}";
       };
     };
+  };
+  rootOpts = {
+    options = lib.mkForce ["rw" "noatime" "noexec" "nosuid" "nodev" "noauto"];
+    neededForBoot = true;
+  };
+  storeOpts = {
+    options = lib.mkForce ["ro" "noatime" "noauto" "casesensitive"];
+    neededForBoot = true;
   };
   root = "root";
 in {
@@ -44,13 +50,13 @@ in {
     // genMediaMount "filestorage/files/Videos"
     // genMediaMount "filestorage/torrents"
     // genMediaMount "filestorage/ps2smb"
-    // genRootMount root "/"
-    // genRootMount "${root}/etc" "/etc"
-    // genRootMount "${root}/nix" "/nix"
-    // genRootMount "${root}/persist" "/persist"
-    // genRootMount "${root}/persist/rtkt" "/home/rtkt"
-    // genRootMount "${root}/persist/root" "/root"
-    // genRootMount "${root}/persist/logs" "/var/log";
+    // genMount root "/" rootOpts
+    // genMount "${root}/etc" "/etc" rootOpts
+    // genMount "${root}/nix" "/nix" storeOpts
+    // genMount "${root}/persist" "/persist" rootOpts
+    // genMount "${root}/persist/rtkt" "/home/rtkt" rootOpts
+    // genMount "${root}/persist/root" "/root" rootOpts
+    // genMount "${root}/persist/logs" "/var/log" rootOpts;
   swapDevices = [{device = "/dev/disk/by-id/ata-Samsung_SSD_870_EVO_1TB_S74ZNX0W302758N-part1";}];
   systemd.tmpfiles.settings."01-linking-from-persist" =
     {}

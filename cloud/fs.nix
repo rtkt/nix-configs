@@ -119,21 +119,26 @@ in {
     // genLinkSettings "/etc/ssh/ssh_host_ed25519_key"
     // genLinkSettings "/etc/ssh/ssh_host_ed25519_key.pub"
     // genLinkSettings "/etc/nixos";
-  # services.fstrim = {
-  #   enable = true;
-  #   interval = "05:00";
-  # };
-  systemd.services."zfs-set-props-on-non-root-vdevs" = {
-    description = "A oneshot service to set ZFS datastore props on non-root vdevs";
-    after = ["zfs-import.target"];
-    wantedBy = ["zfs.target"];
-    script = ''
-      ${genZFSSetCommand mediaProps "filestorage/files"}
-      ${genZFSSetCommand mediaProps "filestorage/ps2smb"}
-      ${genZFSSetCommand defaultProps "raid"}
-    '';
-    serviceConfig = {
-      Type = "exec";
+  systemd = {
+    services."zfs-set-props-on-non-root-vdevs" = {
+      description = "A oneshot service to set ZFS datastore props on non-root vdevs";
+      after = ["zfs-import.target"];
+      wantedBy = ["zfs.target"];
+      script = ''
+        ${genZFSSetCommand mediaProps "filestorage/files"}
+        ${genZFSSetCommand mediaProps "filestorage/ps2smb"}
+        ${genZFSSetCommand defaultProps "raid"}
+      '';
+      serviceConfig = {
+        Type = "exec";
+      };
+    };
+    services.zpool-trim.serviceConfig.ExecStart = lib.mkForce "zpool trim -w ${root}";
+    timers.zpool-trim = {
+      timerConfig = {
+        OnCalendar = lib.mkForce "Sun 02:00:00";
+        RandomizedDelaySec = lib.mkForce "2h";
+      };
     };
   };
 }

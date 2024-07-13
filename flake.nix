@@ -27,7 +27,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = inputs @ {
+  outputs = {
     self,
     nixpkgs,
     nix-alien,
@@ -98,7 +98,6 @@
     nixosConfigurations.cloud = nixpkgs.lib.nixosSystem {
       inherit system;
       inherit pkgs;
-      specialArgs = inputs;
       modules = [
         ({
           lib,
@@ -118,7 +117,7 @@
               inherit config lib pkgs;
             })
             (import ./cloud {
-              inherit config pkgs lib; # sops-nix;
+              inherit config pkgs lib;
             })
           ];
           system.stateVersion = "24.05";

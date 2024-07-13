@@ -15,8 +15,7 @@
     ../common/nozswap.nix
     ../common/smartd.nix
 
-    ./containers
-
+    ./containers.nix
     ./hardware.nix
     ./fs.nix
     ./logging.nix

@@ -5,7 +5,7 @@
     rateLimitInterval = "0";
     extraConfig = ''
       Compress=no
-      MaxRetentionSec=2month
+      MaxRetentionSec=4month
       SystemMaxUse=40G
     '';
   };

@@ -57,9 +57,10 @@
     // rootProps;
   logProps =
     {
-      recordsize = "128K";
+      acltype = "posix";
       compression = "zstd-9";
       logbias = "latency";
+      recordsize = "128K";
     }
     // defaultProps;
   mediaProps =

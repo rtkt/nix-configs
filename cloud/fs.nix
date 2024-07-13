@@ -12,6 +12,20 @@
       // options;
   };
   genMediaMount = path: options: genMount path "/media/${path}" options;
+
+  genPropsService = datastores: prefix: let
+    # Brakes mounting. Dont use
+    genScript = datastores: lib.concatLines (lib.mapAttrsToList (store: props: genZFSSetCommand props store) datastores);
+    genMounts = datastores: prefix: lib.mapAttrsToList (store: props: lib.concatStrings ["${prefix}-" (lib.concatStringsSep "-" (lib.splitString "/" store)) ".mount"]) datastores;
+  in {
+    description = "A oneshot service to set ZFS datastore props on non-root vdevs";
+    after = ["zfs-import.target"] ++ genMounts datastores prefix;
+    wantedBy = ["zfs.target"];
+    serviceConfig.Type = "exec";
+    script = ''
+      ${genScript datastores}
+    '';
+  };
   genLinkSettings = path: {
     "${path}" = {
       "L+" = {
@@ -121,19 +135,6 @@ in {
     // genLinkSettings "/etc/ssh/ssh_host_ed25519_key.pub"
     // genLinkSettings "/etc/nixos";
   systemd = {
-    services."zfs-set-props-on-non-root-vdevs" = {
-      description = "A oneshot service to set ZFS datastore props on non-root vdevs";
-      after = ["zfs-import.target"];
-      wantedBy = ["zfs.target"];
-      script = ''
-        ${genZFSSetCommand mediaProps "filestorage/files"}
-        ${genZFSSetCommand mediaProps "filestorage/ps2smb"}
-        ${genZFSSetCommand defaultProps "raid"}
-      '';
-      serviceConfig = {
-        Type = "exec";
-      };
-    };
     services.zpool-trim.serviceConfig.ExecStart = lib.mkForce "zpool trim -w ${root}";
     timers.zpool-trim = {
       timerConfig = {

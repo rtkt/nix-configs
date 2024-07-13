@@ -55,5 +55,6 @@
     gdown = "git pull";
     gs = "git status";
     gl = "git log";
+    dev = "nix develop -c $SHELL";
   };
 }

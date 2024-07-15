@@ -26,7 +26,12 @@ in {
         neededForUsers = true;
         key = "rtkt";
       };
-
+      nextcloudAdminPass = {
+        sopsFile = nextcloudFile;
+        owner = "nextcloud";
+        key = "nextcloudAdminPass";
+        mode = "0400";
+      };
       # redis-vsdesk = {
       #   sopsFile = redisFile;
       #   owner = "redis-vsdesk";
@@ -64,25 +69,6 @@ in {
       #   owner = "${config.services.n8n-custom.user}";
       #   mode = "0400";
       #   key = "n8n";
-      # };
-      # nextcloud-admin-password = {
-      #   sopsFile = nextcloudFile;
-      #   owner = "nextcloud";
-      #   mode = "0400";
-      #   key = "admin";
-      # };
-      # nextcloud-mysql-user = {
-      #   sopsFile = nextcloudMysqlFile;
-      #   owner = "nextcloud";
-      #   group = "mysql";
-      #   mode = "0440";
-      #   key = "mysql-user";
-      # };
-      # mysql-root = {
-      #   sopsFile = mysqlFile;
-      #   owner = "mysql";
-      #   mode = "0400";
-      #   key = "root";
       # };
     };
   };

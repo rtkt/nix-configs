@@ -30,5 +30,4 @@
     ./tmpfs.nix
     ./users.nix
   ];
-  services.logrotate.config = lib.mkForce null;
 }

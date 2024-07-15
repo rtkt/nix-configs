@@ -17,7 +17,7 @@
 
     ./containers
 
-    ./hardware.nix
+    ./boot.nix
     ./fs.nix
     ./logging.nix
     ./minimization.nix

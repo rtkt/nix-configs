@@ -33,6 +33,7 @@
     rb = "nixos-rebuild ";
     rbb = "nixos-rebuild boot";
     rbt = "nixos-rebuild test";
+    rbs = "nixos-rebuild switch";
     G = " | grep";
     H = " | head";
     T = " | tail";

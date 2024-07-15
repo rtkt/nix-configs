@@ -14,9 +14,14 @@
       {
         name = config.services.nextcloud.config.dbuser;
         ensurePermissions = {
-          "config.services.nextcloud.config.dbname}.*" = "ALL PRIVILEGES";
+          "${config.services.nextcloud.config.dbname}.*" = "ALL PRIVILEGES";
         };
       }
     ];
+    settings.mysqld = {
+      innodb_doublewrite = false;
+      innodb_use_native_aio = false;
+      innodb_use_atomic_write = false;
+    };
   };
 }

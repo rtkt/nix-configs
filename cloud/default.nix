@@ -15,7 +15,8 @@
     ../common/nozswap.nix
     ../common/smartd.nix
 
-    ./containers.nix
+    ./containers
+
     ./hardware.nix
     ./fs.nix
     ./logging.nix
@@ -29,4 +30,5 @@
     ./tmpfs.nix
     ./users.nix
   ];
+  services.logrotate.config = lib.mkForce null;
 }

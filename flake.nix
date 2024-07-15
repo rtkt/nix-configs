@@ -110,15 +110,9 @@
         }: {
           imports = [
             (modulesPath + "/profiles/hardened.nix")
-            (import ./common/defaults {
-              inherit config lib pkgs;
-            })
-            (import ./modules {
-              inherit config lib pkgs;
-            })
-            (import ./cloud {
-              inherit config pkgs lib;
-            })
+            ./common/defaults
+            ./modules
+            ./cloud
           ];
           system.stateVersion = "24.05";
           system.configurationRevision =

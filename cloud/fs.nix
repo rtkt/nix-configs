@@ -117,7 +117,6 @@ in {
     }
     // genMediaMount "raid" mediaOpts
     // genMediaMount "filestorage" mediaOpts
-    // genMediaMount "filestorage/files" mediaOpts
     // genMediaMount "filestorage/torrents" mediaOpts
     // genMediaMount "filestorage/ps2smb" mediaOpts
     // genMount root "/" rootOpts

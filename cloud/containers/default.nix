@@ -5,6 +5,7 @@
   ...
 }: {
   containers.nextcloud = {
+    autoStart = true;
     config = import ./nextcloud;
     bindMounts = {
       "/run/secrets/nextcloudAdminPass" = {

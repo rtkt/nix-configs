@@ -28,7 +28,8 @@ in {
       };
       nextcloudAdminPass = {
         sopsFile = nextcloudFile;
-        owner = "nextcloud";
+        owner = "root";
+        group = "root";
         key = "nextcloudAdminPass";
         mode = "0400";
       };

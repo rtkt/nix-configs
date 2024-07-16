@@ -12,7 +12,8 @@
   imports = [
     (modulesPath + "/profiles/minimal.nix")
     ./imaginary.nix
-    ./mysql.nix
     ./nextcloud.nix
+    ./postgresql.nix
+    ./users.nix
   ];
 }

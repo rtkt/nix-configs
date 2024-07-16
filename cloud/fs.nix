@@ -83,6 +83,12 @@
     primarycache = "metadata";
     recordsize = "16K";
   };
+  postgresqlProps =
+    {
+      logbias = "throughput";
+      recordsize = "32K";
+    }
+    // defaultProps;
   mediaProps =
     {
       acltype = "off";
@@ -110,7 +116,7 @@ in {
       ${genZFSSetCommand rootProps "${root}/persist/rtkt"}
       ${genZFSSetCommand rootProps "${root}/persist/root"}
       ${genZFSSetCommand logProps "${root}/persist/logs"}
-      ${genZFSSetCommand mysqlProps "${root}/persist/nextcloud-mysql"}
+      ${genZFSSetCommand postgresqlProps "${root}/persist/nextcloud-postgresql"}
     '';
     zfs.devNodes = "/dev/disk/by-id";
   };
@@ -132,7 +138,7 @@ in {
     // genMount "${root}/persist/rtkt" "/home/rtkt" rootOpts
     // genMount "${root}/persist/root" "/root" rootOpts
     // genMount "${root}/persist/logs" "/var/log" rootOpts
-    // genMount "${root}/persist/nextcloud-mysql" "/persist/containers/nextcloud/mysql" rootOpts;
+    // genMount "${root}/persist/nextcloud-postgresql" "/persist/containers/nextcloud/postgresql" rootOpts;
   swapDevices = [{device = "/dev/disk/by-id/ata-Samsung_SSD_870_EVO_1TB_S74ZNX0W302758N-part1";}];
   systemd.tmpfiles.settings."01-linking-from-persist" =
     {}

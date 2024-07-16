@@ -7,7 +7,6 @@
   services.nextcloud = {
     enable = true;
     hostName = "files.rtkt.cloud";
-    datadir = "/media/data";
     database.createLocally = true;
     package = pkgs.nextcloud29;
     config = {

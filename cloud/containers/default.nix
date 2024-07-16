@@ -35,7 +35,7 @@ in {
         hostPath = genLogsDirName "nextcloud";
         isReadOnly = false;
       };
-      "/media/data" = {
+      "${nextcloudConfig.services.nextcloud.datadir}/data" = {
         hostPath = "/media/raid/nextcloud";
         isReadOnly = false;
       };

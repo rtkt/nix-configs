@@ -44,6 +44,7 @@ in {
     extraFlags = [
       "--load-credential=nextcloudAdminPass:${config.sops.secrets.nextcloudAdminPass.path}"
     ];
+    hostBridge = "br0";
     forwardPorts = [
       {
         containerPort = 80;
@@ -53,6 +54,7 @@ in {
     ];
     privateNetwork = true;
   };
+  networking.bridges.br0.interfaces = ["enp10s0"];
   systemd.tmpfiles.settings."02-containers-logs" =
     {
       "/var/log/containers" = dirSettings;

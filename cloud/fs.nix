@@ -146,7 +146,11 @@ in {
     // genLinkSettings "/etc/ssh/ssh_host_rsa_key.pub"
     // genLinkSettings "/etc/ssh/ssh_host_ed25519_key"
     // genLinkSettings "/etc/ssh/ssh_host_ed25519_key.pub"
-    // genLinkSettings "/etc/nixos";
+    // genLinkSettings "/etc/nixos"
+    // genLinkSettings "/etc/machine-id"
+    // genLinkSettings "/var/lib/systemd"
+    // genLinkSettings "/var/lib/nixos"
+    // genLinkSettings "/etc/zfs/zpool.cache";
   systemd = {
     services.zpool-trim.serviceConfig.ExecStart = lib.mkForce "zpool trim -w ${root}";
     timers.zpool-trim = {

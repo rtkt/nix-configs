@@ -44,6 +44,14 @@ in {
     extraFlags = [
       "--load-credential=nextcloudAdminPass:${config.sops.secrets.nextcloudAdminPass.path}"
     ];
+    forwardPorts = [
+      {
+        containerPort = 80;
+        hostPort = 9000;
+        protocol = "tcp";
+      }
+    ];
+    privateNetwork = true;
   };
   systemd.tmpfiles.settings."02-containers-logs" =
     {

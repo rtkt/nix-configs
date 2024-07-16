@@ -1,6 +1,7 @@
 {lib, ...}: {
   users.users = {
     nextcloud = {
+      group = "nextcloud";
       isSystemUser = true;
       uid = 10000;
     };

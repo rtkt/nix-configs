@@ -24,9 +24,6 @@
     "198.41.128.0/17"
   ];
 in {
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
   networking = {
     hostName = "cloud";
     useDHCP = false;
@@ -37,5 +34,4 @@ in {
       # extraCommands = f cloudflareIps;
     };
   };
-  services.vnstat.enable = true;
 }

@@ -43,8 +43,8 @@ in {
     ephemeral = true;
     extraFlags = [
       "--load-credential=nextcloudAdminPass:${config.sops.secrets.nextcloudAdminPass.path}"
+      "--network-ipvlan=enp10s0"
     ];
-    hostBridge = "br0";
     forwardPorts = [
       {
         containerPort = 80;
@@ -52,9 +52,24 @@ in {
         protocol = "tcp";
       }
     ];
+    hostBridge = "br0";
     privateNetwork = true;
   };
-  networking.bridges.br0.interfaces = ["enp10s0"];
+  networking = {
+    bridges."br0".interfaces = ["enp10s0"];
+    interfaces = {
+      br0.useDHCP = true;
+      enp10s0.useDHCP = lib.mkForce false;
+    };
+    nat = {
+      enable = true;
+      internalInterfaces = ["ve-+" "vb-+" "iv-+"];
+      internalIPs = ["10.0.1.0/24"];
+      externalInterface = "enp10s0";
+    };
+    useDHCP = lib.mkForce false;
+  };
+  # systemd.network.netdevs.
   systemd.tmpfiles.settings."02-containers-logs" =
     {
       "/var/log/containers" = dirSettings;

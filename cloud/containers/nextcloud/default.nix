@@ -6,6 +6,7 @@
   ...
 }: {
   boot.isContainer = true;
+  networking.firewall.allowedTCPPorts = [9000];
   services.logrotate.enable = lib.mkForce false;
   system.stateVersion = "24.11";
 

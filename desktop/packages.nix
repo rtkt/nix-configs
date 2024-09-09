@@ -41,14 +41,13 @@
       android-udev-rules
       simg2img
       tor-browser-bundle-bin
-      nodejs
-      nodePackages.npm
-      oplpctools
+      #nodejs
+      #nodePackages.npm
+      #oplpctools
       cataclysm-dda
       git-repo
       anytype
       androidStudioPackages.beta
-      pcsxr
       nextcloud-client
     ];
     defaultPackages = [];

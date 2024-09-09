@@ -8,7 +8,6 @@
     extraModulePackages = [];
     initrd.availableKernelModules = ["ahci" "ohci_pci" "ehci_pci" "pata_atiixp" "uhci_hcd" "usb_storage" "usbhid" "sd_mod"];
     initrd.kernelModules = ["amdgpu"];
-    kernelPackages = lib.mkForce pkgs.linuxPackages_6_8;
     kernelParams = [
       "quiet"
       "udev.log_priority=3"

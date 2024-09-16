@@ -31,4 +31,17 @@
     ./users.nix
   ];
   hardware.mcelog.enable = true;
+
+  virtualisation.libvirtd = {
+    enable = true;
+    onBoot = "start";
+    onShutdown = "suspend";
+    qemu.runAsRoot = false;
+  };
+
+  networking.hostId = "0c7dff77";
+  boot.supportedFilesystems = {
+    btrfs = true;
+    zfs = true;
+  };
 }

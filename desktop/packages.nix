@@ -20,7 +20,7 @@
       clementine
       nmap
       speedcrunch
-      vivaldi
+      vivaldi-plasma6
       libreoffice-qt
       chromium
       tdesktop

@@ -14,7 +14,10 @@
   #     layout = "us,ru";
   #   };
   # };
-  services.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6 = {
+    enable = true;
+    enableQt5Integration = false;
+  };
 
   # Select internationalisation properties.
   i18n.defaultLocale = "ru_RU.UTF-8";

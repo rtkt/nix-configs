@@ -31,7 +31,7 @@
     ./users.nix
   ];
   hardware.mcelog.enable = true;
-
+  boot.kernelPackages = lib.mkForce config.boot.zfs.package.latestCompatibleLinuxPackages;
   virtualisation.libvirtd = {
     enable = true;
     onBoot = "start";

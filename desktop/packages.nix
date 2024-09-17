@@ -37,7 +37,7 @@
       android-udev-rules
       simg2img
       tor-browser-bundle-bin
-      #oplpctools
+      oplpctools
       cataclysm-dda
       git-repo
       anytype

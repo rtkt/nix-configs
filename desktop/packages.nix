@@ -44,6 +44,11 @@
       nextcloud-client
     ];
     defaultPackages = [];
+    plasma6.excludePackages = [
+      pkgs.kdePackages.elisa
+      pkgs.kdePackages.kate
+      pkgs.kdePackages.krdc
+    ];
   };
   programs = {
     steam.enable = true;

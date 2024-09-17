@@ -47,7 +47,7 @@
     plasma6.excludePackages = [
       pkgs.kdePackages.elisa
       pkgs.kdePackages.kate
-      pkgs.kdePackages.krdc
+      pkgs.kdePackages.krdp
     ];
   };
   programs = {

@@ -6,7 +6,6 @@
 }: {
   environment = {
     systemPackages = with pkgs; [
-      # zoom-us
       remmina
       keepassxc
       gimp
@@ -16,7 +15,6 @@
       radeontop
       redshift-plasma-applet
       corectrl
-      # wine-staging
       clementine
       nmap
       speedcrunch
@@ -26,7 +24,6 @@
       tdesktop
       thunderbird
       vscode
-      # winetricks
       virt-manager
       anydesk
       nix-alien
@@ -34,20 +31,16 @@
       nix-index-update
       shellcheck
       alejandra
-      # gnupg
       unrar
       marktext
       android-tools
       android-udev-rules
       simg2img
       tor-browser-bundle-bin
-      #nodejs
-      #nodePackages.npm
       #oplpctools
       cataclysm-dda
       git-repo
       anytype
-      androidStudioPackages.beta
       nextcloud-client
     ];
     defaultPackages = [];

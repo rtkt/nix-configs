@@ -16,7 +16,7 @@
   # };
   services.desktopManager.plasma6 = {
     enable = true;
-    enableQt5Integration = false;
+    enableQt5Integration = true;
   };
 
   # Select internationalisation properties.

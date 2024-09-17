@@ -12,7 +12,6 @@
     ../common/multimedia.nix
     ../common/nozswap.nix
 
-    # ./autossh.nix
     ./boot.nix
     # ./go-shadowsocks2-client.nix
     ./gpu.nix

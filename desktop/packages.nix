@@ -42,6 +42,7 @@
       git-repo
       anytype
       nextcloud-client
+      filelight
     ];
     defaultPackages = [];
     plasma6.excludePackages = [

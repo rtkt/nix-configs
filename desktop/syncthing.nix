@@ -2,16 +2,26 @@
   services.syncthing = {
     enable = true;
     user = "rtkt";
-    dataDir = "/home/rtkt/.config/syncthing/";
+    group = "users";
+    dataDir = "/home/rtkt";
+    systemService = true;
+    openDefaultPorts = true;
     overrideDevices = true;
     overrideFolders = true;
     settings = {
-      devices.work.id = "6ZWYE5C-P3C5EBE-BAGAVOP-22IUEC4-JA7NMG3-L6MAUPH-64C4CV7-CWXQDAD";
+      devices.phone.id = "24BNLMG-5HUXTAA-GDPKX7U-5MBFWJD-W3SHTH7-IXOBZSK-TPD667F-YT4AXAB";
       folders = {
+        "Android Камера" = {
+          id = "moto_g85_5g_fzh8 фото";
+          path = "/home/rtkt/Изображения/Телефон/";
+          type = "sendreceive";
+          devices = ["phone"];
+        };
         "Keepass" = {
+          id = "Keepass";
           path = "/home/rtkt/Документы/Keepass";
           type = "sendreceive";
-          devices = ["work"];
+          devices = ["phone"];
           versioning = {
             type = "staggered";
             params = {
@@ -23,4 +33,5 @@
       };
     };
   };
+  systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true";
 }

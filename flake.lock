@@ -321,11 +321,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1726843260,
-        "narHash": "sha256-Mll+5zZ5+ev8ayo3zTJGBE1bubZVQlIaWvkJ3MSX0iY=",
+        "lastModified": 1727034685,
+        "narHash": "sha256-uLxE3DdiTf6G/IxrLIDCp44mwoBSURrDtLDJtzSKkwM=",
         "owner": "rtkt",
         "repo": "nix-overlay",
-        "rev": "b21f0c2386dbb9b3054a45dd2494d559008769c4",
+        "rev": "d23ac68db6a2cecfdcf2bafeb637e21da1fa5f00",
         "type": "github"
       },
       "original": {

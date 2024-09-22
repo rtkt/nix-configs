@@ -11,8 +11,13 @@
       ]
       ++ (
         if config.services.xserver.enable == true
-        then [pkgs.micro]
-        else [pkgs.micro-nogui]
+        then [pkgs.micro-with-xclip]
+        else []
+      )
+      ++ (
+        if config.services.displayManager.sddm.wayland.enable == true
+        then [pkgs.micro-with-wl-clipboard]
+        else [pkgs.micro]
       );
     variables = {
       EDITOR = "micro";

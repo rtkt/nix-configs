@@ -43,6 +43,7 @@
       anytype
       nextcloud-client
       filelight
+      deluge-gtk
     ];
     defaultPackages = [];
     plasma6.excludePackages = [

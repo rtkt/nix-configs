@@ -30,6 +30,12 @@
             };
           };
         };
+        "Screenshots" = {
+          id = "dp400-hzggn";
+          path = "/home/rtkt/Изображения/Скриншоты с телефона";
+          type = "sendreceive";
+          devices = ["phone"];
+        };
       };
     };
   };

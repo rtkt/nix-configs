@@ -11,6 +11,7 @@
     ../common/smartd.nix
     ../common/multimedia.nix
     ../common/nozswap.nix
+    ../common/zfs.nix
 
     ./boot.nix
     # ./go-shadowsocks2-client.nix
@@ -30,7 +31,6 @@
     ./users.nix
   ];
   hardware.mcelog.enable = true;
-  boot.kernelPackages = lib.mkForce config.boot.zfs.package.latestCompatibleLinuxPackages;
   virtualisation.libvirtd = {
     enable = true;
     onBoot = "start";
@@ -39,8 +39,5 @@
   };
 
   networking.hostId = "0c7dff77";
-  boot.supportedFilesystems = {
-    btrfs = true;
-    zfs = true;
-  };
+  boot.supportedFilesystems.btrfs = true;
 }
